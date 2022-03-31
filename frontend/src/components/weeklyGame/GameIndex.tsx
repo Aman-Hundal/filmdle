@@ -1,6 +1,15 @@
+import MovieDetails from "./MovieDetails"
+import PreviousGuess from "./PreviousGuess"
+import UserGuess from "./UserGuess"
+
 const GameIndex = (props: {}) => {
     return (
-        <h1>Table of TV SHOW</h1>
+        <div>
+            <MovieDetails />
+            <UserGuess />
+            <PreviousGuess />
+            <PreviousGuess />
+        </div>
     )
 };
 
