@@ -1,4 +1,4 @@
-const MovieDetails = (props: {}) => {
+const MovieDetails = (props: any) => {
   return (
     <div>
       <p>movie image | movie information</p>

@@ -3,10 +3,7 @@ import './App.css';
 import GameIndex from './components/weeklyGame/GameIndex';
 import axios from 'axios';
 
-
 function App() {
-
-
   const [movie, setMovie] = useState({})
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/tt0120586`;
   
@@ -25,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <h1>Moviedle</h1>
-      <GameIndex/>
+      <GameIndex movieData={movie} />
     </div>
   );
 }
