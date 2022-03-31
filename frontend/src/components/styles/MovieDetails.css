@@ -1,0 +1,28 @@
+.movie-header {
+  display: flex;
+  justify-content: space-around;
+  /* padding: 1.5em; */
+}
+
+.movie-image {
+  width: 15%;
+  height: 15%;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  
+}
+
+.details-list {
+  list-style: none;
+  text-align: left;
+  font-size: larger;
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
