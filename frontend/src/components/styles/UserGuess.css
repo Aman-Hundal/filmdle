@@ -1,0 +1,17 @@
+.user-input {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input-boxes {
+  height: 50px;
+  width: 50px;
+  resize: none;
+  margin-left: 30px;
+  text-align: center;
+  font-size: larger;
+  text-transform: uppercase;
+  font-weight:bolder;
+}

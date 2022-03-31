@@ -1,8 +1,25 @@
+import "../styles/UserGuess.css";
+import {useState} from 'react';
+
 const UserGuess = (props: any) => {
+  const [guess, setGuess] = useState("");
   return (
-    <div>
-      <p>_ _ _ _ _ _ _ _ _ _ _ _ _  </p>
-    </div>
+    <form onSubmit={event => setGuess(event.toString())} autoComplete="off">
+      <div className="user-input">
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+      </div>
+      <div className="form-button">
+      </div>
+    </form>
   )
 };
 

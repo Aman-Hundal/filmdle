@@ -1,6 +1,6 @@
 const PreviousGuess = (props: any) => {
   return (
-    <p>The Lord of the Rings</p>
+    <h1>_ _ _ _ _ _ _ _ _ _ _ _ _  </h1>
   )
 };
 
