@@ -1,7 +1,7 @@
 .movie-header {
   display: flex;
   justify-content: center;
-  /* padding: 1.5em; */
+  padding: 1em;
 }
 
 .movie-image {
@@ -42,6 +42,6 @@
 
 .unknown-text {
   text-align: center;
-  font-size: 90px;
+  font-size: 80px;
   font-weight: bold;
 }
