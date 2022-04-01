@@ -7,7 +7,7 @@ const MovieDetails = (props: any) => {
   console.log(correctAnswer)
   return (
     <div className="movie-header">
-      {correctAnswer ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <div className="unknown"></div>}
+      {correctAnswer ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <div className="unknown"><p className="unknown-text">?</p></div>}
       <div className="movie-details">
         <ul className="details-list">
           <br/>

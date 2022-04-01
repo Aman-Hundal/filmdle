@@ -1,17 +1,17 @@
 .movie-header {
   display: flex;
-  justify-content: space-around;
-  padding: 1.5em;
+  justify-content: center;
+  /* padding: 1.5em; */
 }
 
 .movie-image {
-  width: 15%;
-  height: 15%;
+  width: 281px;
+  height: 421px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  
+  margin-right: 75px;
 }
 
 .details-list {
@@ -31,11 +31,17 @@
 
 .unknown {
   border: solid;
-  width: 15%;
+  width: 281px;
   height: 421px;
-  font-size: x-large;
+  margin-right: 75px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+}
+
+.unknown-text {
+  text-align: center;
+  font-size: 90px;
+  font-weight: bold;
 }

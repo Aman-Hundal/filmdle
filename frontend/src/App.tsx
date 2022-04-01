@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function App() {
   const [movie, setMovie] = useState({});
-  const [correctAnswer, setCorrectAnswer] = useState(true);
+  const [correctAnswer, setCorrectAnswer] = useState(false);
   const [guessCount, setGuessCount] = useState(0);
   const [answer, setAnswer] = useState("");
   const [letters, setLetters] = useState([]);
