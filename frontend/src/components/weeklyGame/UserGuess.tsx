@@ -16,8 +16,16 @@ const UserGuess = (props: any) => {
         <input type="text"  maxLength={1} className="input-boxes"></input>
         <input type="text"  maxLength={1} className="input-boxes"></input>
         <input type="text"  maxLength={1} className="input-boxes"></input>
-      </div>
-      <div className="form-button">
+        {/* <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input>
+        <input type="text"  maxLength={1} className="input-boxes"></input> */}
       </div>
     </form>
   )

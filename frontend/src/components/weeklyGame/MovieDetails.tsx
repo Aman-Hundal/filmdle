@@ -1,4 +1,5 @@
 import '../styles/MovieDetails.css';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MovieDetails = (props: any) => {
   const {movieData, correctAnswer} = props;
@@ -6,7 +7,7 @@ const MovieDetails = (props: any) => {
   console.log(correctAnswer)
   return (
     <div className="movie-header">
-      {correctAnswer ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <p>???</p>}
+      {correctAnswer ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <div className="unknown"></div>}
       <div className="movie-details">
         <ul className="details-list">
           <br/>
