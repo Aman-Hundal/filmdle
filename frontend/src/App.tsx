@@ -5,11 +5,10 @@ import axios from 'axios';
 
 function App() {
   const [movie, setMovie] = useState({});
-  const [correctAnswer, setCorrectAnswer] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(true);
   const [guessCount, setGuessCount] = useState(0);
   const [answer, setAnswer] = useState("");
   const [letters, setLetters] = useState([]);
-
   const mockMovieData: {name: string, image: string, releaseDate: string, runTime: string, rating: string, contentRating: string, genres: string, accolades: string} = {
     name: "Goodfellas",
     image: "https://static.independent.co.uk/2020/09/17/10/goodfellas-poster.jpg?quality=75&width=990&auto=webp&crop=982:726,smart",
@@ -20,9 +19,10 @@ function App() {
     genres: "Thriller, Drama",
     accolades: "5 nominations, no wins"
   };
-
   const movieID: string = 'tt0099685';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
+  console.log(movie);
+  console.log(answer);
   
   useEffect(() => {
     axios.get(movieURL)
@@ -34,13 +34,11 @@ function App() {
       console.log(error);
     })
   }, [])
-
-  console.log(movie);
   
   return (
     <div className="App">
       <h1>Moovdle</h1>
-      <GameIndex mockData={mockMovieData} movieData={movie} correctAnswer={correctAnswer} />
+      <GameIndex mockData={mockMovieData} movieData={movie} answer={answer} correctAnswer={correctAnswer} />
     </div>
   );
 }
