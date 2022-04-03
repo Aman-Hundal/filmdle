@@ -6,14 +6,21 @@ const UserGuess = (props: any) => {
   const answerArray = "goodfellas".split("");
   const [guess, setGuess]: any = useState({});
 
-  const submitAnswer = (input: any) => {
-    if(input === "Enter") {
-      console.log(guess)
+  const submitAnswer = (userInput: any, guessObj: any, answerArray: any) => {
+    const guessArray: string[] = [];
+    if(userInput === "Enter") {
+      for (let key in guessObj) {
+        if (key !== "newKey") {
+          guessArray.push(guessObj[key]);
+        }
+      }
+      console.log("guess", guessArray);
+      console.log("answer", answerArray);
     }
   }
 
   return (
-    <form onKeyDown={event => {submitAnswer(event.key)}} autoComplete="off">
+    <form onKeyDown={event => {submitAnswer(event.key, guess, answerArray)}} autoComplete="off">
       <div className="user-input">
         {answerArray.map((char: string, index: number) => {
           if(char !== " ") {
