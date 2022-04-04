@@ -9,11 +9,8 @@ const GameIndex = (props: any) => {
         <div>
             <MovieDetails movieData={movieData} isCorrectAnswer={isCorrectAnswer} />
             <UserGuess movieData={movieData} isCorrectAnswer={isCorrectAnswer} mockData={mockData} answer={answer} />
-            {/* <UserGuess movieData={movieData} correctAnswer={correctAnswer} mockData={mockData} />
-            <UserGuess movieData={movieData} correctAnswer={correctAnswer} mockData={mockData} /> */}
-            {/* <PreviousGuess />
-            <PreviousGuess /> */}
-            {/* <AvailableLetters /> */}
+            <UserGuess movieData={movieData} isCorrectAnswer={isCorrectAnswer} mockData={mockData} />
+            <UserGuess movieData={movieData} isCorrectAnswer={isCorrectAnswer} mockData={mockData} />
         </div>
     )
 };
