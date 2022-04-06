@@ -1,51 +1,30 @@
-import {useState, useEffect} from 'react';
 import './App.css';
 import GameIndex from './components/weeklyGame/GameIndex';
-import axios from 'axios';
+import useAppData from './hooks/useAppData';
 
 function App() {
-  interface Movie {
-    [apiData: string]: string | string[]; 
-  } //apply this to movie data?
+  const {
+    state,
+  } = useAppData(); 
 
-  const [movie, setMovie] = useState({});
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(true);
-  const [guessCount, setGuessCount] = useState(0);
-  const [answer, setAnswer] = useState("");
-  const [gameOn, setGameOn] = useState(true);
-  const [previousAnswer, setPreviousAnswer]: any = useState([""])
+  // const mockMovieData: {name: string, image: string, releaseDate: string, runTime: string, rating: string, contentRating: string, genres: string, accolades: string} = {
+  //   name: "Goodfellas",
+  //   image: "https://static.independent.co.uk/2020/09/17/10/goodfellas-poster.jpg?quality=75&width=990&auto=webp&crop=982:726,smart",
+  //   releaseDate: "1990",
+  //   runTime: "2hr and 20mins",
+  //   rating: "9.0",
+  //   contentRating: "R",
+  //   genres: "Thriller, Drama",
+  //   accolades: "5 nominations, no wins"
+  // };
 
-  const mockMovieData: {name: string, image: string, releaseDate: string, runTime: string, rating: string, contentRating: string, genres: string, accolades: string} = {
-    name: "Goodfellas",
-    image: "https://static.independent.co.uk/2020/09/17/10/goodfellas-poster.jpg?quality=75&width=990&auto=webp&crop=982:726,smart",
-    releaseDate: "1990",
-    runTime: "2hr and 20mins",
-    rating: "9.0",
-    contentRating: "R",
-    genres: "Thriller, Drama",
-    accolades: "5 nominations, no wins"
-  };
-  const movieID: string = 'tt1877830';
-  const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
-
-  useEffect(() => {
-    axios.get(movieURL)
-    .then((res) => {
-      setMovie((prev) => {return prev = res.data;});
-      setAnswer((prev) => {return prev = res.data.title;});
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }, [])
-
-  console.log(movie);
-  console.log(answer);
+  console.log(state.movie)
+  console.log(state.answer)
   
   return (
     <div className="App">
       <h1>Moovdle</h1>
-      <GameIndex mockData={mockMovieData} movieData={movie} answer={answer} isCorrectAnswer={isCorrectAnswer} />
+      <GameIndex movieData={state.movie} answer={state.answer} isCorrectAnswer={state.isCorrectAnswer} guessCounter={state.guessCount} />
     </div>
   );
 }

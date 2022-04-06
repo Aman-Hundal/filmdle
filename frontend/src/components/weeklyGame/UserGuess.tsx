@@ -2,22 +2,29 @@ import "../styles/UserGuess.css";
 import {useState} from 'react';
 
 const UserGuess = (props: any) => {
-  const {answer} = props;
-  const answerArray = answer.split("");
+  type Guess = {
+    letter: string;
+  }
+
   const [guess, setGuess]: any = useState({});
 
-  const submitAnswer = (userInput: any, guessObj: any, answerArray: any) => {
+  const {answer} = props;
+  const answerArray: string[] = answer.replace(/\s+/g, "").toLowerCase().split("");
+
+  const submitAnswer = (userInput: string, guessObj: any, answerArray: string[]) => {
     const guessArray: string[] = [];
     if(userInput === "Enter") {
       for (let key in guessObj) {
         if (key !== "newKey") {
-          guessArray.push(guessObj[key]);
+          guessArray.push(guessObj[key].toLowerCase());
         }
       }
       console.log("guess", guessArray);
       console.log("answer", answerArray);
     }
-  }
+  };
+
+  // 
 
   return (
     <form onKeyDown={event => {submitAnswer(event.key, guess, answerArray)}} autoComplete="off">

@@ -4,6 +4,7 @@ import '../styles/MovieDetails.css';
 const MovieDetails = (props: any) => {
   const {movieData, isCorrectAnswer} = props;
   const movieImage:string = movieData.image;
+  
   return (
     <div className="movie-header">
       {isCorrectAnswer ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <div className="unknown"><p className="unknown-text">?</p></div>}
