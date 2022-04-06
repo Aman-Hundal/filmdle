@@ -24,15 +24,19 @@ const useAppData = function() {
       console.log("answer", answerArray);
   };
 
-  const ObjToArrConversion = (guessObj: any) => {
-    const objArray: string[] = [];
-    for (let key in guessObj) {
+  const ObjToArrConversion = (obj: any) => {
+    const resultArr: string[] = [];
+    for (let key in obj) {
       if (key !== "newKey") {
-        objArray.push(guessObj[key].toLowerCase());
+        resultArr.push(obj[key].toLowerCase());
       }
     }
-    return objArray;
+    return resultArr;
   };
+
+  const ArrToObjConversion = (arr: string[]) => {
+    
+  }
 
     /*  submit answer -> 
    - clean up both data sets (answer and guess) - make its own function?

@@ -32,8 +32,17 @@ const UserGuess = (props: any) => {
               // console.log(guess)
             }}  maxLength={1} className="input-boxes"></input>
           }
-        }) : ObjToArrConversion(guess).map((char: string, index: number) => {
+        }) : answerArray.map((char: string, index: number) => {
+          // IN THIS SECTION GUESS AND ANSWER MUST BE OBJS AND WE MUST COMAPRE
+          const guessArray: string[] = ObjToArrConversion(guess);
+
+          if (char === guessArray[index]) {
             return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes"></input>
+          }
+
+          return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes"></input>
+
+
         })}
       </div>
     </form>
