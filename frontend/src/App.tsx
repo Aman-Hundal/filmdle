@@ -4,6 +4,10 @@ import GameIndex from './components/weeklyGame/GameIndex';
 import axios from 'axios';
 
 function App() {
+  interface Movie {
+    [apiData: string]: string | string[]; 
+  } //apply this to movie data?
+
   const [movie, setMovie] = useState({});
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(true);
   const [guessCount, setGuessCount] = useState(0);
@@ -21,7 +25,7 @@ function App() {
     genres: "Thriller, Drama",
     accolades: "5 nominations, no wins"
   };
-  const movieID: string = 'tt0099685';
+  const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
   useEffect(() => {

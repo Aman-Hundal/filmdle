@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 const UserGuess = (props: any) => {
   const {answer} = props;
-  const answerArray = "goodfellas".split("");
+  const answerArray = answer.split("");
   const [guess, setGuess]: any = useState({});
 
   const submitAnswer = (userInput: any, guessObj: any, answerArray: any) => {
