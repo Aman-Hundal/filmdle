@@ -7,16 +7,21 @@ const UserGuess = (props: any) => {
   }
 
   const [guess, setGuess]: any = useState({});
-
-  const {answer, submitAnswer} = props;
+  const [submitted, setSubmitted]: any = useState(false);
+  const {answer, submitAnswer, ObjToArrConversion} = props;
   const answerArray: string[] = answer.replace(/\s+/g, "").toLowerCase().split("");
 
-  // 
+  const handleInput = (e:string) => {
+    if(e === "Enter") {
+      submitAnswer(guess, answerArray)
+      setSubmitted((prev: any) => prev = true)
+    }
+  }
 
   return (
-    <form onKeyDown={event => {submitAnswer(event.key, guess, answerArray)}} autoComplete="off">
+    <form onKeyDown={(event)=> {handleInput(event.key)}} autoComplete="off">
       <div className="user-input">
-        {answerArray.map((char: string, index: number) => {
+        {!submitted ? answerArray.map((char: string, index: number) => {
           if(char !== " ") {
             return <input type="text" key={index} onChange={(event) => {
               const newKey = guess[index] = event.target.value;
@@ -27,6 +32,8 @@ const UserGuess = (props: any) => {
               // console.log(guess)
             }}  maxLength={1} className="input-boxes"></input>
           }
+        }) : ObjToArrConversion(guess).map((char: string, index: number) => {
+            return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes"></input>
         })}
       </div>
     </form>

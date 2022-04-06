@@ -5,7 +5,8 @@ import useAppData from './hooks/useAppData';
 function App() {
   const {
     state,
-    submitAnswer
+    submitAnswer,
+    ObjToArrConversion
   } = useAppData(); 
 
   // const mockMovieData: {name: string, image: string, releaseDate: string, runTime: string, rating: string, contentRating: string, genres: string, accolades: string} = {
@@ -25,7 +26,8 @@ function App() {
   return (
     <div className="App">
       <h1>Moovdle</h1>
-      <GameIndex 
+      <GameIndex
+      ObjToArrConversion={ObjToArrConversion} 
       movieData={state.movie}
       submitAnswer={submitAnswer} 
       answer={state.answer} 
