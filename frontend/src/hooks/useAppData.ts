@@ -18,6 +18,19 @@ const useAppData = function() {
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
+  const submitAnswer = (userInput: string, guessObj: any, answerArray: string[]) => {
+    const guessArray: string[] = [];
+    if(userInput === "Enter") {
+      for (let key in guessObj) {
+        if (key !== "newKey") {
+          guessArray.push(guessObj[key].toLowerCase());
+        }
+      }
+      console.log("guess", guessArray);
+      console.log("answer", answerArray);
+    }
+  };
+
   useEffect(() => {
     axios.get(movieURL)
     .then((res) => {
@@ -30,6 +43,7 @@ const useAppData = function() {
 
   return {
     state,
+    submitAnswer
   };
   
 };

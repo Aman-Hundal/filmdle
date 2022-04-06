@@ -5,6 +5,7 @@ import useAppData from './hooks/useAppData';
 function App() {
   const {
     state,
+    submitAnswer
   } = useAppData(); 
 
   // const mockMovieData: {name: string, image: string, releaseDate: string, runTime: string, rating: string, contentRating: string, genres: string, accolades: string} = {
@@ -24,7 +25,12 @@ function App() {
   return (
     <div className="App">
       <h1>Moovdle</h1>
-      <GameIndex movieData={state.movie} answer={state.answer} isCorrectAnswer={state.isCorrectAnswer} guessCounter={state.guessCount} />
+      <GameIndex 
+      movieData={state.movie}
+      submitAnswer={submitAnswer} 
+      answer={state.answer} 
+      isCorrectAnswer={state.isCorrectAnswer} 
+      guessCounter={state.guessCount} />
     </div>
   );
 }

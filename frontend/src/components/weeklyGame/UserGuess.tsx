@@ -8,21 +8,8 @@ const UserGuess = (props: any) => {
 
   const [guess, setGuess]: any = useState({});
 
-  const {answer} = props;
+  const {answer, submitAnswer} = props;
   const answerArray: string[] = answer.replace(/\s+/g, "").toLowerCase().split("");
-
-  const submitAnswer = (userInput: string, guessObj: any, answerArray: string[]) => {
-    const guessArray: string[] = [];
-    if(userInput === "Enter") {
-      for (let key in guessObj) {
-        if (key !== "newKey") {
-          guessArray.push(guessObj[key].toLowerCase());
-        }
-      }
-      console.log("guess", guessArray);
-      console.log("answer", answerArray);
-    }
-  };
 
   // 
 
