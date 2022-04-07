@@ -5,18 +5,18 @@ const UserGuess = (props: any) => {
   type Guess = {
     letter: string;
   }
+  const {answer, submitAnswer, objToArrConversion} = props;
 
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
-  const {answer, submitAnswer, ObjToArrConversion} = props;
+  
   const answerArray: string[] = answer.replace(/\s+/g, "").toLowerCase().split("");
-
   const handleInput = (e:string) => {
     if(e === "Enter") {
-      submitAnswer(guess, answerArray)
-      setSubmitted((prev: any) => prev = true)
+      submitAnswer(guess, answerArray);
+      setSubmitted((prev: any) => prev = true);
     }
-  }
+  };
 
   return (
     <form onKeyDown={(event)=> {handleInput(event.key)}} autoComplete="off">
@@ -26,23 +26,25 @@ const UserGuess = (props: any) => {
             return <input type="text" key={index} onChange={(event) => {
               const newKey = guess[index] = event.target.value;
               setGuess((prev: any) => ({...prev, newKey}));
-              // console.log(index);
-              // console.log(newKey);
-              // console.log(event.target.value);
-              // console.log(guess)
             }}  maxLength={1} className="input-boxes"></input>
           }
         }) : answerArray.map((char: string, index: number) => {
-          // IN THIS SECTION GUESS AND ANSWER MUST BE OBJS AND WE MUST COMAPRE
-          const guessArray: string[] = ObjToArrConversion(guess);
+          const guessArray: string[] = objToArrConversion(guess);
 
-          if (char === guessArray[index]) {
-            return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes"></input>
+          if (!guessArray[index]) {
+            console.log("BLANK FILL", index, guessArray[index]);
+            return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes-incorrect"></input>;
           }
-
-          return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes"></input>
-
-
+          if (char === guessArray[index]) {
+            console.log("CORRECT", index, char);
+            return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;
+          } else if (answerArray.includes(guessArray[index])) {
+            console.log("INCLUDES", index, guessArray[index]);
+            return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-includes"></input>;
+          } else {
+            console.log("WRONG VALUE", index, guessArray[index]);
+            return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-incorrect"></input>;
+          }
         })}
       </div>
     </form>

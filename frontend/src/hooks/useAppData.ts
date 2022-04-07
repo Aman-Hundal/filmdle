@@ -8,23 +8,38 @@ const useAppData = function() {
   
   const [state, setState]: any = useState({
     movie: {},
-    isCorrectAnswer: true,
     guessCount: 0,
     answer: "",
     gameOn: false,
-    previousAnswer: [""]
+    previousAnswer: [""] // DO NOT NEED?
   });
 
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
   const submitAnswer = (guessObj: any, answerArray: string[]) => {
-    const guessArray: string[] = ObjToArrConversion(guessObj)
+    const guessArray: string[] = objToArrConversion(guessObj)
       console.log("guess", guessArray);
       console.log("answer", answerArray);
+
+      // if (answerCheck(guessArray, answerArray)) {
+      //   setState((prev: any) => ({...prev, gameOn: false }));
+
+      // }
+      setState((prev: any) => ({...prev, guessCount: state.guessCount + 1 }));
   };
 
-  const ObjToArrConversion = (obj: any) => {
+  const answerCheck = (guessArray: string[], answerArray: string[]): boolean => {
+    return true;
+  };
+
+  const gameOverCheck = (guessCount: number) => {
+    if(guessCount === 3) {
+      setState((prev: any) => ({...prev, gameOn: false }));
+    }
+  };
+
+  const objToArrConversion = (obj: any): string[] => {
     const resultArr: string[] = [];
     for (let key in obj) {
       if (key !== "newKey") {
@@ -34,9 +49,17 @@ const useAppData = function() {
     return resultArr;
   };
 
-  const ArrToObjConversion = (arr: string[]) => {
-    
-  }
+  const arrToObjConversion = (arr: string[]) => {
+    const resultObj: any= {};
+
+    arr.forEach((char: string, index: number) => {
+      if(char !== " ") {
+        resultObj[index] = char;
+      }
+    })
+
+    return resultObj;
+  };
 
     /*  submit answer -> 
    - clean up both data sets (answer and guess) - make its own function?
@@ -61,7 +84,8 @@ const useAppData = function() {
   return {
     state,
     submitAnswer,
-    ObjToArrConversion
+    objToArrConversion,
+    arrToObjConversion
   };
   
 };

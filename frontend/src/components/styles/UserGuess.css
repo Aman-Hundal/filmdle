@@ -15,15 +15,44 @@
   font-size: larger;
   text-transform: uppercase;
   font-weight:bolder;
-  
-  /* padding-left: 15px;
-  letter-spacing: 42px;
-  border: 0;
-  background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
-  background-position: bottom;
-  background-size: 50px 1px;
-  background-repeat: repeat-x;
-  background-position-x: 35px;
-  width: 220px;
-  outline : none; */
+  color: black;
+}
+
+.input-boxes-correct {
+  height: 50px;
+  width: 50px;
+  resize: none;
+  margin-left: 30px;
+  text-align: center;
+  font-size: larger;
+  text-transform: uppercase;
+  font-weight:bolder;
+  background: lightgreen;
+  color: black;
+}
+
+.input-boxes-includes {
+  height: 50px;
+  width: 50px;
+  resize: none;
+  margin-left: 30px;
+  text-align: center;
+  font-size: larger;
+  text-transform: uppercase;
+  font-weight:bolder;
+  background: lightyellow;
+  color: black;
+}
+
+.input-boxes-incorrect {
+  height: 50px;
+  width: 50px;
+  resize: none;
+  margin-left: 30px;
+  text-align: center;
+  font-size: larger;
+  text-transform: uppercase;
+  font-weight:bolder;
+  background: pink;
+  color: black;
 }
