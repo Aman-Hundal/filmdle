@@ -42,13 +42,15 @@ const useAppData = function() {
     return true;
   };
 
-  const gameOverCheck = (guessCount: number) => {
+  const gameOverCheck = (guessCount: number): boolean => {
     if(guessCount === 3) {
       setState((prev: any) => ({...prev, gameOver: true }));
-      console.log("GAME IS OVER", guessCount)
+      return true;
+      // console.log("GAME IS OVER", guessCount)
     }
 
-    console.log("GAME IS NOT OVER", guessCount)
+    // console.log("GAME IS NOT OVER", guessCount)
+    return false;
   };
 
   const objToArrConversion = (obj: any): string[] => {

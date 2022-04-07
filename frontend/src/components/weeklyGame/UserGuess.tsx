@@ -34,6 +34,7 @@ const UserGuess = (props: any) => {
       <div className="user-input">
         {submitted ? answerArray.map((char: string, index: number) => {
           const guessArray: string[] = objToArrConversion(guess);
+
           if (!guessArray[index]) {
             console.log("BLANK FILL", index, guessArray[index]);
             return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes-incorrect"></input>;
@@ -48,11 +49,14 @@ const UserGuess = (props: any) => {
             console.log("WRONG VALUE", index, guessArray[index]);
             return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-incorrect"></input>;
           }
-        }) : isCorrect && !submitted ? answerArray.map((char: string, index: number) => {
+          
+        }) 
+        : isCorrect && !submitted ? answerArray.map((char: string, index: number) => {
           if(char !== " ") {
             return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes"></input>;
           }
-        }) : answerArray.map((char: string, index: number) => {
+        }) 
+        : answerArray.map((char: string, index: number) => {
           if(char !== " ") {
             return <input type="text" key={index} onChange={(event) => {
               const newKey = guess[index] = event.target.value;

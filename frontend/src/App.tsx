@@ -10,8 +10,8 @@ function App() {
     gameOverCheck
   } = useAppData(); 
 
-  console.log(state.movie)
-  console.log(state.answer)
+  // console.log(state.movie)
+  // console.log(state.answer)
   
   return (
     <div className="App">
