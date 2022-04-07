@@ -8,9 +8,10 @@ const useAppData = function() {
   
   const [state, setState]: any = useState({
     movie: {},
+    isCorrect: false,
     guessCount: 0,
     answer: "",
-    gameOn: false,
+    gameOver: false,
     previousAnswer: [""] // DO NOT NEED?
   });
 
@@ -18,25 +19,38 @@ const useAppData = function() {
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
   const submitAnswer = (guessObj: any, answerArray: string[]) => {
-    const guessArray: string[] = objToArrConversion(guessObj)
+    const guessArray: string[] = objToArrConversion(guessObj);
       console.log("guess", guessArray);
       console.log("answer", answerArray);
 
-      // if (answerCheck(guessArray, answerArray)) {
-      //   setState((prev: any) => ({...prev, gameOn: false }));
-
-      // }
+      if (answerCheck(guessArray, answerArray)) {
+        setState((prev: any) => ({...prev, isCorrect: true }));
+        console.log("IS CORRECT?", state.isCorrect)
+      }
       setState((prev: any) => ({...prev, guessCount: state.guessCount + 1 }));
   };
 
   const answerCheck = (guessArray: string[], answerArray: string[]): boolean => {
+    if(answerArray.length !== guessArray.length) {
+      return false;
+    }
+
+    answerArray.forEach((char: string, index: number) => {
+      if (char !== guessArray[index]) {
+        return false;
+      }
+    })
+
     return true;
   };
 
   const gameOverCheck = (guessCount: number) => {
     if(guessCount === 3) {
-      setState((prev: any) => ({...prev, gameOn: false }));
+      setState((prev: any) => ({...prev, gameOver: true }));
+      console.log("GAME IS OVER", guessCount)
     }
+
+    console.log("GAME IS NOT OVER", guessCount)
   };
 
   const objToArrConversion = (obj: any): string[] => {
@@ -85,7 +99,8 @@ const useAppData = function() {
     state,
     submitAnswer,
     objToArrConversion,
-    arrToObjConversion
+    arrToObjConversion,
+    gameOverCheck
   };
   
 };

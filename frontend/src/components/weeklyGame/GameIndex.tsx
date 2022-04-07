@@ -2,13 +2,13 @@ import MovieDetails from "./MovieDetails";
 import UserGuess from "./UserGuess";
 
 const GameIndex = (props: any) => {
-    const { movieData, gameOn, answer, submitAnswer, objToArrConversion } = props;
+    const { movieData, gameOver, answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect } = props;
     return (
         <div>
-            <MovieDetails movieData={movieData} gameOn={gameOn} />
-            <UserGuess movieData={movieData} gameOn={gameOn} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} />
-            <UserGuess movieData={movieData} gameOn={gameOn} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} />
-            <UserGuess movieData={movieData} gameOn={gameOn} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} />
+            <MovieDetails movieData={movieData} gameOver={gameOver}   isCorrect={isCorrect} />
+            <UserGuess movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
+            <UserGuess movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
+            <UserGuess movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
         </div>
     )
 };
