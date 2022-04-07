@@ -6,25 +6,31 @@ const UserGuess = (props: any) => {
   type Guess = {
     letter: string;
   }
-  const {answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect} = props;
+  const { answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect } = props;
 
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
   
-  const answerArray: string[] = answer.replace(/\s+/g, "").toLowerCase().split("");
-  const handleInput = (e:string, guessCount: number) => {
+  const answerArray: string[] = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().split("");
+  const handleInput = (e:string) => {
     if(e === "Enter") {
       submitAnswer(guess, answerArray);
       setSubmitted((prev: any) => prev = true);
     }
   };
 
+  // const handleKeyDown = (event: any) => {
+  //   const form = event.target.form;
+  //   const index = [...form].indexOf(event.target);
+  //   form.elements[index + 1].focus();
+  // };
+
   useEffect(() => {
     gameOverCheck(guessCount)
   }, [guessCount])
 
   return (
-    <form onKeyDown={(event)=> {handleInput(event.key, guessCount)}} autoComplete="off">
+    <form onKeyDown={(event)=> {handleInput(event.key)}} autoComplete="off">
       <div className="user-input">
         {submitted ? answerArray.map((char: string, index: number) => {
           const guessArray: string[] = objToArrConversion(guess);

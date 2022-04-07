@@ -26,7 +26,7 @@ function App() {
       answer={state.answer} 
       gameOver={state.gameOver} 
       guessCounter={state.guessCount} />
-      {state.gameOver || state.isCorrect ? <p className="goodbye">The movie was <strong>{state.answer}</strong>. Please join again next week.</p> : null}
+      {state.gameOver || state.isCorrect ? <p className="goodbye">The movie was <strong>{state.answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")}</strong>. Please join again next week.</p> : null}
     </div>
   );
 }

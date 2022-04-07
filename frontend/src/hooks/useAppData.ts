@@ -25,7 +25,6 @@ const useAppData = function() {
 
       if (answerCheck(guessArray, answerArray)) {
         setState((prev: any) => ({...prev, isCorrect: true }));
-        console.log("IS CORRECT?", state.isCorrect)
       }
       setState((prev: any) => ({...prev, guessCount: state.guessCount + 1 }));
   };
@@ -35,12 +34,11 @@ const useAppData = function() {
       return false;
     }
 
-    answerArray.forEach((char: string, index: number) => {
-      if (char !== guessArray[index]) {
+    for (let i = 0; i < answerArray.length; i++) {
+      if(answerArray[i] !== guessArray[i]) {
         return false;
       }
-    })
-
+    }
     return true;
   };
 
@@ -64,7 +62,7 @@ const useAppData = function() {
   };
 
   const arrToObjConversion = (arr: string[]) => {
-    const resultObj: any= {};
+    const resultObj: any = {};
 
     arr.forEach((char: string, index: number) => {
       if(char !== " ") {
@@ -74,16 +72,6 @@ const useAppData = function() {
 
     return resultObj;
   };
-
-    /*  submit answer -> 
-   - clean up both data sets (answer and guess) - make its own function?
-   - change submitted state to true which will: 
-      - compare both data sets of string arrays and confirm if they match -> MAKE THE TWO DATA SETS AN OBJECT OF INDEX: CHAR NOT STRING ARRAYS
-        -if key and value (index and char) match = make the input box green , if value exists but key is incorrect (index not correct but value is there) = make the box yellow, else make the box red
-      - lock the userGuess field so no more input can be had -> own function?
-   - increase guessCount by 1 on each submission -> setState
-
-  */
 
   useEffect(() => {
     axios.get(movieURL)
