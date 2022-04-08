@@ -19,7 +19,7 @@ const useAppData = function() {
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
   const submitAnswer = (guessObj: any, answerArray: string[]) => {
-    const guessArray: string[] = objToArrConversion(guessObj);
+    const guessArray: string[] = objToArrConversion(guessObj, answerArray.length);
       console.log("guess", guessArray);
       console.log("answer", answerArray);
 
@@ -53,11 +53,11 @@ const useAppData = function() {
     return false;
   };
 
-  const objToArrConversion = (obj: any): string[] => {
-    const resultArr: string[] = [];
+  const objToArrConversion = (obj: any, arrLength: number): string[] => {
+    const resultArr: string[] = Array(arrLength).fill("");
     for (let key in obj) {
       if (key !== "newKey") {
-        resultArr.push(obj[key].toLowerCase());
+        resultArr[parseInt(key)] = obj[key].toLowerCase();
       }
     }
     return resultArr;
