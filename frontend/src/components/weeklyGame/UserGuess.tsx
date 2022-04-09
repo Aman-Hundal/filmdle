@@ -7,29 +7,54 @@ const UserGuess = (props: any) => {
     letter: string;
   }
   const { answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect } = props;
+  let input: string;
 
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
   
   const answerArray: string[] = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().split("");
-  const handleInput = (e:string) => {
-    if(e === "Enter") {
+  const handleInput = (event: any) => {
+    if(event.key === "Enter") {
       submitAnswer(guess, answerArray);
       setSubmitted((prev: any) => prev = true);
     }
   };
-  // const handleKeyDown = (event: any) => {
+  // const focusField = (event: any, input:string) => {
   //   const form = event.target.form;
-  //   const index = [...form].indexOf(event.target);
-  //   form.elements[index + 1].focus();
+  //   const index = [...form].indexOf(event.target)
+  //   const disallowedKeys = ["delete", "backspace"]
+  //   console.log(event.target.value)
+  //   // if (input === "backspace") {
+  //   //   form.elements[index - 1].focus();
+  //   // } else {
+  //   //   form.elements[index + 1].focus();
+  //   // }
+  //   if ((!disallowedKeys.includes(input))) {
+  //     form.elements[index + 1].focus();
+  //   } else if (disallowedKeys.includes(input) && event.target.value === "") {
+  //     form.elements[index - 1].focus();
+  //   }
   // };
+
+  const focusField = (event: any) => {
+    const form = event.target.form;
+    const index = [...form].indexOf(event.target);
+    const disallowedKeys = ["delete", "backspace"]
+
+    if (disallowedKeys.includes(event.key.toLowerCase())) {
+      form.elements[index - 1].focus();
+    } else {
+      form.elements[index + 1].focus();
+    }
+
+  }
 
   useEffect(() => {
     gameOverCheck(guessCount)
   }, [guessCount])
 
   return (
-    <form onKeyDown={(event)=> {handleInput(event.key)}} autoComplete="off">
+    <form onKeyDown={(event)=> {handleInput(event)}} autoComplete="off">
       <div className="user-input">
         {submitted ? answerArray.map((char: string, index: number) => {
           const guessArray: string[] = objToArrConversion(guess, answerArray.length);
@@ -53,10 +78,12 @@ const UserGuess = (props: any) => {
           }
         }) : answerArray.map((char: string, index: number) => {
           if(char !== " ") {
-            return <input type="text" key={index} onChange={(event) => {
-              const newKey = guess[index] = event.target.value;
-              setGuess((prev: any) => ({...prev, newKey}));
-            }}  maxLength={1} className="input-boxes"></input>
+              return <input type="text" key={index} onKeyDown={event => focusField(event)} onChange={(event: any) => {
+                const newKey = guess[index] = event.target.value;
+                setGuess((prev: any) => ({...prev, newKey}));
+                // focusField(event, input);
+                console.log(guess);
+              }}  maxLength={1} className="input-boxes"></input>
           }})}
       </div>
     </form>

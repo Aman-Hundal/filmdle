@@ -54,7 +54,7 @@ const useAppData = function() {
   };
 
   const objToArrConversion = (obj: any, arrLength: number): string[] => {
-    const resultArr: string[] = Array(arrLength).fill("");
+    const resultArr: string[] = new Array(arrLength).fill("");
     for (let key in obj) {
       if (key !== "newKey") {
         resultArr[parseInt(key)] = obj[key].toLowerCase();
