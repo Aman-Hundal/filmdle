@@ -2,8 +2,9 @@ import '../styles/MovieDetails.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MovieDetails = (props: any) => {
-  const {movieData, gameOver, isCorrect} = props;
+  const {movieData, gameOver, isCorrect, answer} = props;
   const movieImage: string = movieData.image;
+  const answerLetterCount = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length
   
   return (
     <div className="movie-header">
@@ -24,6 +25,8 @@ const MovieDetails = (props: any) => {
           {movieData.genres ? <li>Genres: {movieData.genres}</li> : <li>Genres: N/A</li>}
           <br />
           {movieData.awards ? <li>Accolades: IMDB {movieData.awards}</li> : <li>Accolades: N/A</li>}
+          <br />
+          <li>Letters: {answerLetterCount}</li>
           <br />
         </ul>
       </div> 
