@@ -53,6 +53,18 @@ const useAppData = function() {
     return false;
   };
 
+  const focusField = (event: any) => {
+    const form = event.target.form;
+    const index = [...form].indexOf(event.target);
+    const disallowedKeys = ["delete", "backspace"];
+    if (disallowedKeys.includes(event.key.toLowerCase()) && event.target.value === "") {
+      form.elements[index - 1].focus();
+    } 
+    if (!disallowedKeys.includes(event.key.toLowerCase()) && (event.target.value !== "")) {
+      form.elements[index + 1].focus();
+    }
+  };
+
   const objToArrConversion = (obj: any, arrLength: number): string[] => {
     const resultArr: string[] = new Array(arrLength).fill("");
     for (let key in obj) {
@@ -90,7 +102,8 @@ const useAppData = function() {
     submitAnswer,
     objToArrConversion,
     arrToObjConversion,
-    gameOverCheck
+    gameOverCheck,
+    focusField
   };
   
 };

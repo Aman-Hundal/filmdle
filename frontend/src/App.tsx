@@ -7,7 +7,8 @@ function App() {
     state,
     submitAnswer,
     objToArrConversion,
-    gameOverCheck
+    gameOverCheck,
+    focusField
   } = useAppData(); 
 
   // console.log(state.movie)
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <h1>Movie-dle</h1>
       <GameIndex
+      focusField={focusField}
       isCorrect={state.isCorrect}
       objToArrConversion={objToArrConversion}
       gameOverCheck={gameOverCheck}
