@@ -4,17 +4,17 @@
   /* padding: 1em; */
 }
 
-.movie-image {
-  width: 281px;
-  height: 421px;
+.poster {
+  width: 320px;
+	height: 480px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  margin-right: 75px;
 }
 
 .details-list {
+  margin-left: 100px;
   list-style: none;
   text-align: left;
   font-size: larger;
@@ -25,11 +25,69 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  margin-top: 30px;
   width: 100%;
 }
 
-.unknown {
+.unknown-text {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 150px;
+}
+
+
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+.flip-container, .front, .back {
+  width: 320px;
+	height: 480px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+/* flip speed goes here */
+.flipper {
+	transition: 1.5s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+  border: solid;
+  width: 320px;
+	height: 480px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+.non-flip {
+  width: 320px;
+	height: 480px;
+}
+.flip-container .flipper, .flip-container .flipper, .flip-container.flip .flipper {
+	transform: rotateY(180deg);
+}
+
+/* .unknown-image {
   border: solid;
   width: 281px;
   height: 421px;
@@ -38,10 +96,4 @@
   border-top-right-radius: 30px;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-}
-
-.unknown-text {
-  font-size: 60px;
-  font-weight: bold;
-  margin-top: 150px;
-}
+} */

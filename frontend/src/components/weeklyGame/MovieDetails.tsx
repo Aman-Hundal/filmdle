@@ -1,14 +1,27 @@
 import '../styles/MovieDetails.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from "classnames";
 
 const MovieDetails = (props: any) => {
   const {movieData, gameOver, isCorrect, answer} = props;
   const movieImage: string = movieData.image;
-  const answerLetterCount = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length
+  const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length
+  let flipContainer: string = classNames('non-flip', {"flip-container": isCorrect || gameOver});
   
   return (
     <div className="movie-header">
-      {gameOver || isCorrect ? <img alt="movie-poster"className="movie-image" src={movieImage}></img> : <div className="unknown"><p className="unknown-text">?</p></div>}
+
+      <div className={flipContainer}>
+        <div className="flipper">
+          <div className="front">
+            <p className="unknown-text">?</p>
+          </div>
+          <div className="back">
+            <img alt="movie-poster"className="poster" src={movieImage}></img>
+          </div>
+        </div>
+      </div>
+
       <div className="movie-details">
         <ul className="details-list">
           <br/>
@@ -30,8 +43,12 @@ const MovieDetails = (props: any) => {
           <br />
         </ul>
       </div> 
+      
     </div>
   )
 };
 
 export default MovieDetails;
+
+// {gameOver || isCorrect ? <div><img alt="movie-poster"className="poster" src={movieImage}></img></div> : 
+// <div className="unknown-image"><p className="unknown-text">?</p></div>}
