@@ -3,60 +3,69 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .input-boxes {
-  height: 50px;
-  width: 50px;
+  height: 70px;
+  width: 70px;
+  border: solid 1px;
   resize: none;
-  margin-left: 30px;
+  margin-left: 15px;
   text-align: center;
-  font-size: larger;
+  font-size: x-large;
   text-transform: uppercase;
-  font-weight:bolder;
-  color: black;
+  color: white;
+  background-color: lightgray;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 .input-boxes-correct {
-  height: 50px;
-  width: 50px;
+  border: solid 1px;
+  height: 70px;
+  width: 70px;
   resize: none;
-  margin-left: 30px;
+  margin-left: 15px;
   text-align: center;
-  font-size: larger;
+  font-size: x-large;
   text-transform: uppercase;
-  font-weight:bolder;
-  background: lightgreen;
-  color: black;
+  background-color: #008450;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 .input-boxes-includes {
-  height: 50px;
-  width: 50px;
+  border: solid 1px;
+  height: 70px;
+  width: 70px;
   resize: none;
-  margin-left: 30px;
+  margin-left: 15px;
   text-align: center;
-  font-size: larger;
+  font-size: x-large;
   text-transform: uppercase;
-  font-weight:bolder;
-  background: lightyellow;
-  color: black;
+  background-color: #E5CA66;
+  color: white;
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 .input-boxes-incorrect {
-  height: 50px;
-  width: 50px;
+  border: solid 1px;
+  height: 70px;
+  width: 70px;
   resize: none;
-  margin-left: 30px;
+  margin-left: 15px;
   text-align: center;
-  font-size: larger;
+  font-size: x-large;
   text-transform: uppercase;
-  font-weight:bolder;
-  background: pink;
-  color: black;
+  background-color: #B81D13;
+  color: white;
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
 }
 
 @keyframes shake {

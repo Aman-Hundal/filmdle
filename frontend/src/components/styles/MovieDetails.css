@@ -4,6 +4,7 @@
   justify-content: center;
   align-items: center;
   padding: 1em;
+  margin-bottom: 50px;
 }
 
 .poster {
@@ -18,7 +19,7 @@
 .details-list {
   padding-left: 1.5em;
   padding-right: 1.5em;
-  margin-left: 75px;
+  margin-left: 70px;
   list-style: none;
   text-align: left;
   font-size: larger;
@@ -27,7 +28,7 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  width: 42.5vw;
+  width: 35vw;
 }
 
 .unknown-text {
