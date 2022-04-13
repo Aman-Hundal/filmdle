@@ -1,37 +1,39 @@
 .movie-header {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  /* padding: 1em; */
+  align-items: center;
+  padding: 1em;
 }
 
 .poster {
-  width: 320px;
-	height: 480px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  width: 300px;
+	height: 450px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .details-list {
-  margin-left: 100px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-left: 75px;
   list-style: none;
   text-align: left;
   font-size: larger;
-  border: solid;
-  display: flex;
-  flex-direction: column;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  width: 100%;
+  border: solid 1px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  width: 42.5vw;
 }
 
 .unknown-text {
-  font-size: 60px;
-  font-weight: bold;
-  margin-top: 150px;
+  font-size: 55px;
+  margin-top: 170px;
+  text-align: center;
 }
 
 
@@ -40,12 +42,12 @@
 	perspective: 1000px;
 }
 .flip-container, .front, .back {
-  width: 320px;
-	height: 480px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  width: 300px;
+	height: 450px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 /* flip speed goes here */
 .flipper {
@@ -65,13 +67,13 @@
 /* front pane, placed above back */
 .front {
 	z-index: 2;
-  border: solid;
-  width: 320px;
-	height: 480px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border: solid 1px;
+  width: 300px;
+	height: 450px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 	/* for firefox 31 */
 	transform: rotateY(0deg);
 }
@@ -80,20 +82,20 @@
 	transform: rotateY(180deg);
 }
 .non-flip {
-  width: 320px;
-	height: 480px;
+  width: 300px;
+	height: 450px;
 }
 .flip-container .flipper, .flip-container .flipper, .flip-container.flip .flipper {
 	transform: rotateY(180deg);
 }
 
 /* .unknown-image {
-  border: solid;
+  border: solid 1px;
   width: 281px;
   height: 421px;
   margin-right: 75px;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
 } */

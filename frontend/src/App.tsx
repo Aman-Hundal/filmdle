@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Movie-dle</h1>
+      <h1 className="title">filmdle</h1>
       <GameIndex
       focusField={focusField}
       isCorrect={state.isCorrect}
