@@ -9,6 +9,6 @@ Users have three guesses to guess the movie and are given some background on wha
 App uses various CSS animations on the user input fields, and was created with TypeScript with a MERN stack and the 3rd party IMDB API. 
 
 ### Screenshots
-!["Start"]()
-!["Guess"]()
-!["End"]()
+!["Start"](https://github.com/Aman-Hundal/MyPortfolio/blob/main/docs/start.png?raw=true)
+!["Guess"](https://github.com/Aman-Hundal/MyPortfolio/blob/main/docs/play.png?raw=true)
+!["End"](https://github.com/Aman-Hundal/MyPortfolio/blob/main/docs/end.png?raw=true)
