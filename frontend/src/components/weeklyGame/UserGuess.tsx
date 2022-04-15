@@ -6,7 +6,7 @@ const UserGuess = (props: any) => {
   type Guess = {
     letter: string;
   }
-  const { answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField } = props;
+  const { answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back } = props;
 
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
@@ -24,6 +24,7 @@ const UserGuess = (props: any) => {
   }, [guessCount])
 
   return (
+    <div>
     <form onKeyDown={(event)=> {handleSubmit(event)}} autoComplete="off">
       <div className="user-input">
         {submitted ? answerArray.map((char: string, index: number) => {
@@ -53,6 +54,11 @@ const UserGuess = (props: any) => {
           }})}
       </div>
     </form>
+    <div className="buttons">
+      <button onClick={event => back()}>Back</button>
+      <button onClick={event => transition()}>Fwd</button>
+    </div>
+    </div>
   )
 };
 
