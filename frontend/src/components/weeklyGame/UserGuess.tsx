@@ -28,10 +28,6 @@ const UserGuess = (props: any) => {
       <div className="user-input">
         {submitted ? answerArray.map((char: string, index: number) => {
           const guessArray: string[] = objToArrConversion(guess, answerArray.length);
-          // if (!guessArray[index]) {
-          //   console.log("BLANK FILL", index, guessArray[index]);
-          //   return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes-incorrect"></input>;
-          // }
           if (char === guessArray[index]) {
             console.log("CORRECT", index, char);
             return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;

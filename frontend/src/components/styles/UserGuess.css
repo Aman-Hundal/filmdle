@@ -1,17 +1,19 @@
 .user-input {
   width: 100vw;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: center; */
+  text-align: center;
   margin-bottom: 30px;
 }
 
 .input-boxes {
   height: 70px;
   width: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;
   border: solid 1px;
   resize: none;
-  margin-left: 15px;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
@@ -25,8 +27,9 @@
   border: solid 1px;
   height: 70px;
   width: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;
   resize: none;
-  margin-left: 15px;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
@@ -40,8 +43,9 @@
   border: solid 1px;
   height: 70px;
   width: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;;
   resize: none;
-  margin-left: 15px;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
@@ -56,8 +60,9 @@
   border: solid 1px;
   height: 70px;
   width: 70px;
+  margin-bottom: 10px;
+  margin-left: 10px;
   resize: none;
-  margin-left: 15px;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
