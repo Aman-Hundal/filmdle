@@ -25,7 +25,7 @@ const UserGuess = (props: any) => {
   }, [guessCount])
 
   return (
-    <div>
+    <div className="main-input">
     <form onKeyDown={(event)=> {handleSubmit(event)}} autoComplete="off">
       <div className="user-input">
         {submitted ? formattedAnswerArray.map((char: string, index: number) => {
@@ -64,8 +64,8 @@ const UserGuess = (props: any) => {
       </div>
     </form>
     <div className="buttons">
-      <button onClick={event => back()}>Back</button>
-      <button onClick={event => transition()}>Fwd</button>
+      <p className="buttons-content" onClick={event => back()}>Back</p>
+      <p className="buttons-content" onClick={event => transition()}>Fwd</p>
     </div>
     </div>
   )

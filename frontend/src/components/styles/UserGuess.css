@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center; */
   text-align: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
 }
 
 .input-boxes {
@@ -75,8 +75,18 @@
 
 .buttons {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 25px;
+  justify-content: center;
+
+}
+
+.buttons-content {
+  cursor: pointer;
+  font-size: large;
+  margin-left: 10px;
+}
+
+.buttons-content:hover {
+  color: blue;
 }
 
 @keyframes shake {
