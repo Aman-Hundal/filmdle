@@ -8,7 +8,8 @@ function App() {
     submitAnswer,
     objToArrConversion,
     gameOverCheck,
-    focusField
+    focusField,
+    formatAnswerArr
   } = useAppData(); 
 
   // console.log(state.movie)
@@ -21,6 +22,7 @@ function App() {
       focusField={focusField}
       isCorrect={state.isCorrect}
       objToArrConversion={objToArrConversion}
+      formatAnswerArr={formatAnswerArr}
       gameOverCheck={gameOverCheck}
       guessCount={state.guessCount}
       movieData={state.movie}

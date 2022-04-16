@@ -15,12 +15,22 @@ const useAppData = function() {
     gameOver: false,
     previousAnswer: [""] // DO NOT NEED?
   });
-  // tt1877830 // tt0120737 //tt0086190
+  // tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
-  const submitAnswer = (guessObj: any, answerArray: string[]) => {
-    const guessArray: string[] = objToArrConversion(guessObj, answerArray.length);
+  const submitAnswer = (guessObj: any, answer: string) => {
+    const guessArray: string[] = objToArrConversion(guessObj, answer);
+    // const answerArray: string[] = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().split("");
+    const formattedArray: string[] = formatAnswerArr(answer);
+    const answerArray: string[] = formattedArray.map((elm: string, index: number) => {
+      if(elm === "|") {
+        return elm = "";
+      }
+
+      return elm;
+    })
+
       console.log("guess", guessArray);
       console.log("answer", answerArray);
 
@@ -66,8 +76,9 @@ const useAppData = function() {
     }
   };
 
-  const objToArrConversion = (obj: any, arrLength: number): string[] => {
-    const resultArr: string[] = new Array(arrLength).fill("");
+  const objToArrConversion = (obj: any, answer: string): string[] => {
+    const answerLen: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length;
+    const resultArr: string[] = new Array(answerLen).fill("");
     for (let key in obj) {
       if (key !== "newKey") {
         resultArr[parseInt(key)] = obj[key].toLowerCase();
@@ -87,6 +98,28 @@ const useAppData = function() {
 
     return resultObj;
   };
+  
+  const formatAnswerArr = (answer: string): string[] => {
+    const lineBreak = '|'
+    const words = answer.toLowerCase().split(" ");
+    let newStr: any = words.shift()
+    let charCount = newStr.length;
+    const breakCount = Math.round((answer.length) / 3);
+
+    words.forEach(function(word, i) {
+      charCount += word.length + 1;
+      if (charCount <= breakCount) {
+        newStr += ' ';
+      } else {
+        newStr += lineBreak;
+        charCount = word.length;
+      }
+      newStr += word;
+    });
+    
+    return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").split("");
+
+  }
 
   useEffect(() => {
     axios.get(movieURL)
@@ -104,7 +137,8 @@ const useAppData = function() {
     objToArrConversion,
     arrToObjConversion,
     gameOverCheck,
-    focusField
+    focusField,
+    formatAnswerArr
   };
   
 };

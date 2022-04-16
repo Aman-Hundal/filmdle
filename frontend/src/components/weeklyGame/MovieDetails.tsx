@@ -5,7 +5,7 @@ import classNames from "classnames";
 const MovieDetails = (props: any) => {
   const {movieData, gameOver, isCorrect, answer} = props;
   const movieImage: string = movieData.image;
-  const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length
+  const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length;
   let flipContainer: string = classNames('non-flip', {"flip-container": isCorrect || gameOver});
   
   return (

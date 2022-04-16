@@ -8,8 +8,8 @@
 }
 
 .input-boxes {
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;
   border: solid 1px;
@@ -25,8 +25,8 @@
 
 .input-boxes-correct {
   border: solid 1px;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;
   resize: none;
@@ -41,8 +41,8 @@
 
 .input-boxes-includes {
   border: solid 1px;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;;
   resize: none;
@@ -58,8 +58,8 @@
 
 .input-boxes-incorrect {
   border: solid 1px;
-  height: 70px;
-  width: 70px;
+  height: 60px;
+  width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;
   resize: none;
