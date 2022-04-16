@@ -16,12 +16,11 @@ const useAppData = function() {
     previousAnswer: [""] // DO NOT NEED?
   });
   // tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
-  const movieID: string = 'tt1877830';
+  const movieID: string = 'tt0120737';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
   const submitAnswer = (guessObj: any, answer: string) => {
     const guessArray: string[] = objToArrConversion(guessObj, answer);
-    // const answerArray: string[] = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().split("");
     const formattedArray: string[] = formatAnswerArr(answer);
     const answerArray: string[] = formattedArray.map((elm: string, index: number) => {
       if(elm === "|") {
@@ -116,10 +115,10 @@ const useAppData = function() {
       }
       newStr += word;
     });
-    
+
     return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").split("");
 
-  }
+  };
 
   useEffect(() => {
     axios.get(movieURL)

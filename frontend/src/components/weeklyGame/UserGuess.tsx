@@ -12,7 +12,6 @@ const UserGuess = (props: any) => {
   const [submitted, setSubmitted]: any = useState(false);
   
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
-
   const handleSubmit = (event: any) => {
     if(event.key === "Enter") {
       submitAnswer(guess, answer);
@@ -31,6 +30,9 @@ const UserGuess = (props: any) => {
       <div className="user-input">
         {submitted ? formattedAnswerArray.map((char: string, index: number) => {
           const guessArray: string[] = objToArrConversion(guess, answer);
+          if (char === "|") {
+            return <br key={index}/>
+          }
           if (char === guessArray[index]) {
             console.log("CORRECT", index, char);
             return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;
@@ -42,8 +44,10 @@ const UserGuess = (props: any) => {
             return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-incorrect"></input>;
           }
         }) : isCorrect && !submitted ? formattedAnswerArray.map((char: string, index: number) => {
-          if(char !== " ") {
+          if(char !== "|") {
             return <input type="text" key={index} disabled value={""} maxLength={1} className="input-boxes"></input>;
+          } else {
+            return <br key={index}/>
           }
         }) : formattedAnswerArray.map((char: string, index: number) => {
           if(char !== "|") {
