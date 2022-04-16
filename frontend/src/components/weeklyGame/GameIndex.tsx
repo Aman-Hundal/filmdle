@@ -8,9 +8,9 @@ const GameIndex = (props: any) => {
     return (
         <div>
             <MovieDetails movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={answer} />
-            {mode === "guessOne" && <UserGuess formatAnswerArr={formatAnswerArr} transition={() => transition("guessTwo")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
-            {mode === "guessTwo" && <UserGuess formatAnswerArr={formatAnswerArr} back={back} transition={() => transition("guessThree")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
-            {mode === "guessThree" && <UserGuess formatAnswerArr={formatAnswerArr} back={back} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
+            <UserGuess formatAnswerArr={formatAnswerArr} transition={() => transition("guessTwo")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
+            <UserGuess formatAnswerArr={formatAnswerArr} back={back} transition={() => transition("guessThree")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
+            <UserGuess formatAnswerArr={formatAnswerArr} back={back} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />
         </div>
     )
 };
