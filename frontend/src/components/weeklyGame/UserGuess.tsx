@@ -65,7 +65,7 @@ const UserGuess = (props: any) => {
     </form>
     <div className="buttons">
       <p className="buttons-content" onClick={event => back()}>Back</p>
-      <p className="buttons-content" onClick={event => transition()}>Fwd</p>
+      <p className="buttons-content" onClick={event => transition()}>Next</p>
     </div>
     </div>
   )
