@@ -14,6 +14,7 @@ function App() {
 
   // console.log(state.movie)
   // console.log(state.answer)
+  // console.log("guessesArray", state.guessesArray)
   
   return (
     <div className="App">
@@ -26,6 +27,7 @@ function App() {
       gameOverCheck={gameOverCheck}
       guessCount={state.guessCount}
       movieData={state.movie}
+      guessesArray={state.guessesArray}
       submitAnswer={submitAnswer} 
       answer={state.answer} 
       gameOver={state.gameOver} 
