@@ -6,16 +6,18 @@ const UserGuess = (props: any) => {
   type Guess = {
     letter: string;
   }
-  const { answer, previousGuess, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
+  const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
 
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
+
+  console.log(fieldID)
   
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
   const handleSubmit = (event: any) => {
     if(event.key === "Enter") {
-      submitAnswer(guess, answer);
-      console.log(formattedAnswerArray)
+      submitAnswer(guess, answer, fieldID);
+      // console.log(formattedAnswerArray)
       setSubmitted((prev: any) => prev = true);
     }
   };
@@ -60,13 +62,13 @@ const UserGuess = (props: any) => {
             return <br key={index}/>
           }
           if (char === guessArray[index]) {
-            console.log("CORRECT", index, char);
+            // console.log("CORRECT", index, char);
             return <input type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;
           } else if (formattedAnswerArray.includes(guessArray[index])) {
-            console.log("INCLUDES", index, guessArray[index]);
+            // console.log("INCLUDES", index, guessArray[index]);
             return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-includes"></input>;
           } else {
-            console.log("WRONG VALUE", index, guessArray[index]);
+            // console.log("WRONG VALUE", index, guessArray[index]);
             return <input type="text" key={index} disabled value={guessArray[index]} maxLength={1} className="input-boxes-incorrect"></input>;
           }
         }) : isCorrect && !submitted ? formattedAnswerArray.map((char: string, index: number) => {

@@ -8,9 +8,9 @@ const GameIndex = (props: any) => {
     return (
         <div>
             <MovieDetails movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={answer} />
-            {mode === "guessOne" && <UserGuess previousGuess={guessesArray[0]} formatAnswerArr={formatAnswerArr} transition={() => transition("guessTwo")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
-            {mode === "guessTwo" && <UserGuess previousGuess={guessesArray[1]} formatAnswerArr={formatAnswerArr} back={back} transition={() => transition("guessThree")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
-            {mode === "guessThree" && <UserGuess previousGuess={guessesArray[2]} formatAnswerArr={formatAnswerArr} back={back} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
+            {mode === "guessOne" && <UserGuess fieldID={0} previousGuess={guessesArray[0]} formatAnswerArr={formatAnswerArr} transition={() => transition("guessTwo")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
+            {mode === "guessTwo" && <UserGuess fieldID={1} previousGuess={guessesArray[1]} formatAnswerArr={formatAnswerArr} back={back} transition={() => transition("guessThree")} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
+            {mode === "guessThree" && <UserGuess fieldID={2} previousGuess={guessesArray[2]} formatAnswerArr={formatAnswerArr} back={back} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck}  />}
         </div>
     )
 };

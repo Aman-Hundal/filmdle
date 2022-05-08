@@ -14,7 +14,7 @@ function App() {
 
   // console.log(state.movie)
   // console.log(state.answer)
-  // console.log("guessesArray", state.guessesArray)
+  console.log("guessesArray", state.guessesArray)
   
   return (
     <div className="App">

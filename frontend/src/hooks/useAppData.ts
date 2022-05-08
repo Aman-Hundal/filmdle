@@ -19,7 +19,7 @@ const useAppData = function() {
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
-  const submitAnswer = (guessObj: any, answer: string) => {
+  const submitAnswer = (guessObj: any, answer: string, field: number) => {
     const guessArray: string[] = objToArrConversion(guessObj, answer);
     const formattedArray: string[] = formatAnswerArr(answer);
     const answerArray: string[] = formattedArray.map((elm: string, index: number) => {
@@ -34,11 +34,13 @@ const useAppData = function() {
       console.log("answer", answerArray);
 
       if (answerCheck(guessArray, answerArray)) {
-        const newArr = [...state.guessesArray, guessArray]
-        setState((prev: any) => ({...prev, isCorrect: true,  guessCount: state.guessCount + 1, guessesArray: newArr}));
+        const copyArr =  [...state.guessesArray];
+        copyArr[field] = guessArray;
+        setState((prev: any) => ({...prev, isCorrect: true,  guessCount: state.guessCount + 1, guessesArray: copyArr}));
       } else {
-        const newArr = [...state.guessesArray, guessArray]
-        setState((prev: any) => ({...prev, guessCount: state.guessCount + 1, guessesArray: newArr}));
+        const copyArr =  [...state.guessesArray];
+        copyArr[field] = guessArray;
+        setState((prev: any) => ({...prev, guessCount: state.guessCount + 1, guessesArray: copyArr}));
       }
   
   };
