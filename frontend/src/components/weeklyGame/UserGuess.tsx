@@ -79,11 +79,14 @@ const UserGuess = (props: any) => {
           }
         }) : formattedAnswerArray.map((char: string, index: number) => {
           if(char !== "|") {
-              return <input type="text" key={index}  onKeyDown={(event: any) => {
+              return <input type="text" key={index} onChange={(event: any) => {
                 const newKey = guess[index] = event.target.value;
                 setGuess((prev: any) => ({...prev, newKey}));
-                focusField(event)
                 console.log(guess);
+              }}  onKeyDown={(event: any) => {
+                // const newKey = guess[index] = event.target.value;
+                // setGuess((prev: any) => ({...prev, newKey}));
+                focusField(event)
               }}  maxLength={1} className="input-boxes"></input>
           } else {
             return <br key={index}/>
