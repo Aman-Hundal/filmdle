@@ -2,19 +2,26 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-const useAppData = function() {
+const useAppData = function () {
   interface Movie {
-    [apiData: string]: string | string[]; 
+    [apiData: string]: string | string[];
   };
-  
-  const [state, setState]: any = useState({
-    movie: {},
-    isCorrect: false,
-    guessCount: 0,
-    answer: "",
-    gameOver: false,
-    guessesArray: []
-  });
+
+  const [state, setState]: any = useState(
+    localStorage.getItem("gameData") ? JSON.parse(localStorage.getItem("gameData") || "{}") :
+      {
+        isCorrect: false,
+        guessCount: 0,
+        answer: "",
+        gameOver: false,
+        guessesArray: []
+      }
+  );
+  const [movieState, setMovieState]: any = useState({});
+
+  console.log(state);
+  console.log(movieState.movie);
+
   // tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
@@ -23,35 +30,35 @@ const useAppData = function() {
     const guessArray: string[] = objToArrConversion(guessObj, answer);
     const formattedArray: string[] = formatAnswerArr(answer);
     const answerArray: string[] = formattedArray.map((elm: string, index: number) => {
-      if(elm === "|") {
+      if (elm === "|") {
         return elm = "";
       }
 
       return elm;
     })
 
-      console.log("guess", guessArray);
-      console.log("answer", answerArray);
+    console.log("guess", guessArray);
+    console.log("answer", answerArray);
 
-      if (answerCheck(guessArray, answerArray)) {
-        const copyArr =  [...state.guessesArray];
-        copyArr[field] = guessArray;
-        setState((prev: any) => ({...prev, isCorrect: true,  guessCount: state.guessCount + 1, guessesArray: copyArr}));
-      } else {
-        const copyArr =  [...state.guessesArray];
-        copyArr[field] = guessArray;
-        setState((prev: any) => ({...prev, guessCount: state.guessCount + 1, guessesArray: copyArr}));
-      }
-  
+    if (answerCheck(guessArray, answerArray)) {
+      const copyArr = [...state.guessesArray];
+      copyArr[field] = guessArray;
+      setState((prev: any) => ({ ...prev, isCorrect: true, guessCount: state.guessCount + 1, guessesArray: copyArr }));
+    } else {
+      const copyArr = [...state.guessesArray];
+      copyArr[field] = guessArray;
+      setState((prev: any) => ({ ...prev, guessCount: state.guessCount + 1, guessesArray: copyArr }));
+    }
+
   };
 
   const answerCheck = (guessArray: string[], answerArray: string[]): boolean => {
-    if(answerArray.length !== guessArray.length) {
+    if (answerArray.length !== guessArray.length) {
       return false;
     }
 
     for (let i = 0; i < answerArray.length; i++) {
-      if(answerArray[i] !== guessArray[i]) {
+      if (answerArray[i] !== guessArray[i]) {
         return false;
       }
     }
@@ -64,13 +71,10 @@ const useAppData = function() {
   // }
 
   const gameOverCheck = (guessCount: number): boolean => {
-    if(guessCount === 3) {
-      setState((prev: any) => ({...prev, gameOver: true }));
+    if (guessCount === 3) {
+      setState((prev: any) => ({ ...prev, gameOver: true }));
       return true;
-      // console.log("GAME IS OVER", guessCount)
     }
-
-    // console.log("GAME IS NOT OVER", guessCount)
     return false;
   };
 
@@ -80,14 +84,14 @@ const useAppData = function() {
     const disallowedKeys = ["delete", "backspace"];
     if (disallowedKeys.includes(event.key.toLowerCase()) && event.target.value === "") {
       form.elements[index - 1].focus();
-    } 
+    }
     if (!disallowedKeys.includes(event.key.toLowerCase()) && (event.target.value !== "")) {
       form.elements[index + 1].focus();
     }
   };
 
   const objToArrConversion = (obj: any, answer: string): string[] => {
-    const answerLen: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length;
+    const answerLen: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
     const resultArr: string[] = new Array(answerLen).fill("");
     for (let key in obj) {
       if (key !== "newKey") {
@@ -101,14 +105,14 @@ const useAppData = function() {
     const resultObj: any = {};
 
     arr.forEach((char: string, index: number) => {
-      if(char !== " ") {
+      if (char !== " ") {
         resultObj[index] = char;
       }
     })
 
     return resultObj;
   };
-  
+
   const formatAnswerArr = (answer: string): string[] => {
     const lineBreak = '|'
     const words = answer.toLowerCase().split(" ");
@@ -116,7 +120,7 @@ const useAppData = function() {
     let charCount = newStr.length;
     const breakCount = Math.round((answer.length) / 3);
 
-    words.forEach(function(word, i) {
+    words.forEach(function (word, i) {
       charCount += word.length + 1;
       if (charCount <= breakCount) {
         newStr += ' ';
@@ -127,22 +131,29 @@ const useAppData = function() {
       newStr += word;
     });
 
-    return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").split("");
+    return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").split("");
 
   };
 
   useEffect(() => {
     axios.get(movieURL)
-    .then((res) => {
-      setState((prev: any) => ({...prev, answer: res.data.title, movie: res.data }));
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+      .then((res) => {
+        const movie : any = res.data;
+        setMovieState((prev: any) => ({ ...prev, movie}));
+        setState((prev: any) => ({ ...prev, answer: movie.title}));
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("gameData", JSON.stringify(state));
+  }, [state]);
 
   return {
     state,
+    movieState,
     submitAnswer,
     objToArrConversion,
     arrToObjConversion,
@@ -150,7 +161,7 @@ const useAppData = function() {
     focusField,
     formatAnswerArr
   };
-  
+
 };
 
 export default useAppData;
