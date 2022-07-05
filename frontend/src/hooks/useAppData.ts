@@ -64,12 +64,7 @@ const useAppData = function () {
     }
     return true;
   };
-
-  // const guessStringConversion = (guessArray: string[]): string => {
-
-  //   return ""
-  // }
-
+  
   const gameOverCheck = (guessCount: number): boolean => {
     if (guessCount === 3) {
       setState((prev: any) => ({ ...prev, gameOver: true }));
