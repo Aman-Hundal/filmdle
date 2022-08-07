@@ -3,11 +3,11 @@ import '../styles/MovieDetails.css';
 import classNames from "classnames";
 
 const MovieDetails = (props: any) => {
-  const {movieData, gameOver, isCorrect, answer} = props;
+  const { movieData, gameOver, isCorrect, answer } = props;
   const movieImage: string = movieData.image;
-  const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s+/g, "").toLowerCase().length;
-  let flipContainer: string = classNames('non-flip', {"flip-container": isCorrect || gameOver});
-  
+  const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
+  let flipContainer: string = classNames('non-flip', { "flip-container": isCorrect || gameOver });
+
   return (
     <div className="movie-header">
 
@@ -17,14 +17,14 @@ const MovieDetails = (props: any) => {
             <p className="unknown-text">?</p>
           </div>
           <div className="back">
-            <img alt="movie-poster"className="poster" src={movieImage}></img>
+            <img alt="movie-poster" className="poster" src={movieImage}></img>
           </div>
         </div>
       </div>
 
       <div className="movie-details">
         <ul className="details-list">
-          <br/>
+          <br />
           {movieData.year ? <li>Release Date: {movieData.year}</li> : <li>Release Date: N/A</li>}
           <br />
           {movieData.runtimeStr ? <li>Runtime: {movieData.runtimeStr}</li> : <li>Runtime: N/A</li>}
@@ -42,13 +42,13 @@ const MovieDetails = (props: any) => {
           <li>Letters: {answerLetterCount}</li>
           <br />
         </ul>
-      </div> 
-      
+      </div>
+
     </div>
   )
 };
 
 export default MovieDetails;
 
-// {gameOver || isCorrect ? <div><img alt="movie-poster"className="poster" src={movieImage}></img></div> : 
+// {gameOver || isCorrect ? <div><img alt="movie-poster"className="poster" src={movieImage}></img></div> :
 // <div className="unknown-image"><p className="unknown-text">?</p></div>}

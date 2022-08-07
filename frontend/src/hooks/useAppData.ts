@@ -7,20 +7,17 @@ const useAppData = function () {
     [apiData: string]: string | string[];
   };
 
-  const [state, setState]: any = useState(
+  const [gameState, setGameState]: any = useState(
     localStorage.getItem("gameData") ? JSON.parse(localStorage.getItem("gameData") || "{}") :
       {
         isCorrect: false,
         guessCount: 0,
-        answer: "",
         gameOver: false,
         guessesArray: []
       }
   );
   const [movieState, setMovieState]: any = useState({});
-
-  console.log(state);
-  console.log(movieState.movie);
+  const [loading, setLoading]: any = useState(true);
 
   // tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
   const movieID: string = 'tt1877830';
@@ -41,13 +38,13 @@ const useAppData = function () {
     console.log("answer", answerArray);
 
     if (answerCheck(guessArray, answerArray)) {
-      const copyArr = [...state.guessesArray];
+      const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
-      setState((prev: any) => ({ ...prev, isCorrect: true, guessCount: state.guessCount + 1, guessesArray: copyArr }));
+      setGameState((prev: any) => ({ ...prev, isCorrect: true, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
     } else {
-      const copyArr = [...state.guessesArray];
+      const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
-      setState((prev: any) => ({ ...prev, guessCount: state.guessCount + 1, guessesArray: copyArr }));
+      setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
     }
 
   };
@@ -64,10 +61,10 @@ const useAppData = function () {
     }
     return true;
   };
-  
+
   const gameOverCheck = (guessCount: number): boolean => {
     if (guessCount === 3) {
-      setState((prev: any) => ({ ...prev, gameOver: true }));
+      setGameState((prev: any) => ({ ...prev, gameOver: true }));
       return true;
     }
     return false;
@@ -133,22 +130,24 @@ const useAppData = function () {
   useEffect(() => {
     axios.get(movieURL)
       .then((res) => {
-        const movie : any = res.data;
-        setMovieState((prev: any) => ({ ...prev, movie}));
-        setState((prev: any) => ({ ...prev, answer: movie.title}));
+        const movie: any = res.data;
+        setMovieState((prev: any) => (prev = movie));
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       })
+
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("gameData", JSON.stringify(state));
-  }, [state]);
+    localStorage.setItem("gameData", JSON.stringify(gameState));
+  }, [gameState]);
 
   return {
-    state,
+    gameState,
     movieState,
+    loading,
     submitAnswer,
     objToArrConversion,
     arrToObjConversion,

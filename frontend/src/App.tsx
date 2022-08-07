@@ -1,12 +1,12 @@
 import './App.css';
 import GameIndex from './components/weeklyGame/GameIndex';
 import useAppData from './hooks/useAppData';
-import { useEffect } from "react";
 
 function App() {
   const {
-    state,
+    gameState,
     movieState,
+    loading,
     submitAnswer,
     objToArrConversion,
     gameOverCheck,
@@ -14,24 +14,31 @@ function App() {
     formatAnswerArr
   } = useAppData();
 
+  console.log(movieState.title)
+  console.log(gameState)
+
   return (
-    <div className="App">
-      <h1 className="title">filmdle</h1>
-      <GameIndex
-        focusField={focusField}
-        isCorrect={state.isCorrect}
-        objToArrConversion={objToArrConversion}
-        formatAnswerArr={formatAnswerArr}
-        gameOverCheck={gameOverCheck}
-        guessCount={state.guessCount}
-        movieData={movieState}
-        guessesArray={state.guessesArray}
-        submitAnswer={submitAnswer}
-        answer={state.answer}
-        gameOver={state.gameOver}
-        guessCounter={state.guessCount} />
-      {state.gameOver || state.isCorrect ? <p className="goodbye">The movie was <strong>{state.answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : null}
-    </div>
+    <>
+      {!loading ?
+        <div className="App">
+          <h1 className="title">filmdle</h1>
+          <GameIndex
+            focusField={focusField}
+            isCorrect={gameState.isCorrect}
+            objToArrConversion={objToArrConversion}
+            formatAnswerArr={formatAnswerArr}
+            gameOverCheck={gameOverCheck}
+            guessCount={gameState.guessCount}
+            movieData={movieState}
+            guessesArray={gameState.guessesArray}
+            submitAnswer={submitAnswer}
+            answer={movieState.title}
+            gameOver={gameState.gameOver}
+            guessCounter={gameState.guessCount} />
+          {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The movie was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : null}
+        </div> :
+        null}
+    </>
   );
 }
 
