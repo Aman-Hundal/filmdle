@@ -13,7 +13,8 @@ const useAppData = function () {
         isCorrect: false,
         guessCount: 0,
         gameOver: false,
-        guessesArray: []
+        guessesArray: [],
+        timestamp: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1),
       }
   );
   const [movieState, setMovieState]: any = useState({});
@@ -128,6 +129,13 @@ const useAppData = function () {
   };
 
   useEffect(() => {
+    const currentDate = new Date();
+    console.log(currentDate >= gameState.timestamp)
+
+    if (currentDate >= gameState.timestamp) {
+      localStorage.clear();
+    }
+
     axios.get(movieURL)
       .then((res) => {
         const movie: any = res.data;

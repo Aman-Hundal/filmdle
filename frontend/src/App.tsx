@@ -14,7 +14,6 @@ function App() {
     formatAnswerArr
   } = useAppData();
 
-  console.log(movieState.title)
   console.log(gameState)
 
   return (

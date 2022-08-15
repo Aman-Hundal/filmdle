@@ -11,8 +11,6 @@ const UserGuess = (props: any) => {
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
 
-  console.log(fieldID)
-
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
   const handleSubmit = (event: any) => {
     if (event.key === "Enter") {
