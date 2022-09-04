@@ -14,7 +14,7 @@ const useAppData = function () {
         guessCount: 0,
         gameOver: false,
         guessesArray: [],
-        timestamp: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 1),
+        timestamp: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 7),
       }
   );
   const [movieState, setMovieState]: any = useState({});
