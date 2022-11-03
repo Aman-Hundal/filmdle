@@ -13,7 +13,7 @@ const useAppData = function () {
         isCorrect: false,
         guessCount: 0,
         gameOver: false,
-        guessesArray: [],
+        guessesArray: [], // [{id: 1, guessArray: [], guessCompleted: bool }]. Currently an [ [], [], [] ]
         timestamp: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 7),
       }
   );

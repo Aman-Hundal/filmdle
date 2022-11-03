@@ -77,15 +77,39 @@ const UserGuess = (props: any) => {
             }
           }) : formattedAnswerArray.map((char: string, index: number) => {
             if (char !== "|") {
-              return <input type="text" key={index} onChange={(event: any) => {
-                const newKey = guess[index] = event.target.value;
-                setGuess((prev: any) => ({ ...prev, newKey }));
-                console.log(guess);
-              }} onKeyDown={(event: any) => {
-                // const newKey = guess[index] = event.target.value;
-                // setGuess((prev: any) => ({...prev, newKey}));
-                focusField(event)
-              }} maxLength={1} className="input-boxes"></input>
+              if (index === 0) {
+                return <input
+                  type="text"
+                  autoFocus
+                  key={index}
+                  onChange={(event: any) => {
+                    const newKey = guess[index] = event.target.value;
+                    setGuess((prev: any) => ({ ...prev, newKey }));
+                    console.log(guess);
+                  }}
+                  onKeyDown={(event: any) => {
+                    // const newKey = guess[index] = event.target.value;
+                    // setGuess((prev: any) => ({...prev, newKey}));
+                    focusField(event)
+                  }}
+                  maxLength={1}
+                  className="input-boxes"></input>
+              }
+              return <input
+                type="text"
+                key={index}
+                onChange={(event: any) => {
+                  const newKey = guess[index] = event.target.value;
+                  setGuess((prev: any) => ({ ...prev, newKey }));
+                  console.log(guess);
+                }}
+                onKeyDown={(event: any) => {
+                  // const newKey = guess[index] = event.target.value;
+                  // setGuess((prev: any) => ({...prev, newKey}));
+                  focusField(event)
+                }}
+                maxLength={1}
+                className="input-boxes"></input>
             } else {
               return <br key={index} />
             }
