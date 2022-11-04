@@ -1,4 +1,4 @@
-import "../styles/UserGuess.css";
+import "../../../styles/UserGuess.css";
 import { useState } from 'react';
 import { useEffect } from "react";
 
@@ -6,12 +6,14 @@ const UserGuess = (props: any) => {
   // type Guess = {
   //   letter: string;
   // }
-  // Props
   const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
 
   //Local State
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
+  const [firstTime, setFirstTime] = useState(true);
+
+  //Constants
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
 
   //Handle Submit function which takes in a users guess.
@@ -28,7 +30,7 @@ const UserGuess = (props: any) => {
     gameOverCheck(guessCount)
   }, [guessCount])
 
-  if (previousGuess) {
+  if (!firstTime) {
     return (
       <div className="main-input">
         <div className="user-input">
@@ -37,11 +39,11 @@ const UserGuess = (props: any) => {
               return <br key={index} />
             }
             if (char === previousGuess[index]) {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;
+              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct-no-anim"></input>;
             } else if (formattedAnswerArray.includes(previousGuess[index])) {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-includes"></input>;
+              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-includes-no-anim"></input>;
             } else {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-incorrect"></input>;
+              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-incorrect-no-anim"></input>;
             }
           })
           }

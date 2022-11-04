@@ -1,4 +1,4 @@
-import '../styles/MovieDetails.css';
+import "../../../styles/MovieDetails.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from "classnames";
 

@@ -1,6 +1,6 @@
 import useVisualMode from "../../hooks/useVisualMode";
-import MovieDetails from "./MovieDetails";
-import UserGuess from "./UserGuess";
+import MovieDetails from "./MovieDetails/Index";
+import UserGuess from "./UserGuess/Index";
 
 const GameIndex = (props: any) => {
     const { movieData, guessesArray, gameOver, answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;

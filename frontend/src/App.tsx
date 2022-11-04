@@ -1,5 +1,5 @@
-import './App.css';
-import GameIndex from './components/weeklyGame/GameIndex';
+import './styles/App.css';
+import GameIndex from './components/Game/Index';
 import useAppData from './hooks/useAppData';
 
 function App() {
@@ -35,8 +35,7 @@ function App() {
             gameOver={gameState.gameOver}
             guessCounter={gameState.guessCount} />
           {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The movie was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : null}
-        </div> :
-        null}
+        </div> : null}
     </>
   );
 }
