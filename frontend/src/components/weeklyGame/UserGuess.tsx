@@ -6,12 +6,15 @@ const UserGuess = (props: any) => {
   // type Guess = {
   //   letter: string;
   // }
+  // Props
   const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
 
+  //Local State
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
-
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
+
+  //Handle Submit function which takes in a users guess.
   const handleSubmit = (event: any) => {
     if (event.key === "Enter") {
       submitAnswer(guess, answer, fieldID);
@@ -20,6 +23,7 @@ const UserGuess = (props: any) => {
     }
   };
 
+  //useEffect to see if game is over or not. If guessCount = 3 the game is over.
   useEffect(() => {
     gameOverCheck(guessCount)
   }, [guessCount])
