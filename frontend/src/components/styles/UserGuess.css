@@ -20,30 +20,27 @@
   font-size: x-large;
   text-transform: uppercase;
   color: black;
-  border-color: gray;
+  border-color: lightgrey;
   background-color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
 }
 
 .input-boxes-correct {
-  /* animation: shiftColor 2s ease; */
-
-  animation: jump 1s ease;
-  animation-fill-mode: forwards;
-  background-color: #008450;
-
   border: solid 1px;
   height: 60px;
   width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;
-  color: white;
-  border-color: white;
   resize: none;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
+  /* color: white; */
+  /* background-color: #008450; */
+  border-color: lightgrey;
+  animation: jump 1s ease;
+  animation-fill-mode: forwards;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
 }
@@ -53,16 +50,15 @@
   height: 60px;
   width: 60px;
   margin-bottom: 10px;
-  border-color: black;
   margin-left: 10px;
   resize: none;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
-  background-color: #E5CA66;
-  color: white;
-  border-color: white;
-  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  /* background-color: #E5CA66; */
+  /* color: white; */
+  border-color: lightgrey;
+  animation: shakeYellow 0.82s cubic-bezier(.36, .07, .19, .97) both;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
 }
@@ -73,15 +69,14 @@
   width: 60px;
   margin-bottom: 10px;
   margin-left: 10px;
-  border-color: black;
   resize: none;
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
-  background-color: red;
-  color: white;
-  border-color: white;
-  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  /* background-color: red; */
+  /* color: white; */
+  border-color: lightgrey;
+  animation: shakeRed 0.82s cubic-bezier(.36, .07, .19, .97) both;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
 }
@@ -102,7 +97,16 @@
   color: blue;
 }
 
-@keyframes shake {
+@keyframes shakeRed {
+  from {
+    background-color: white;
+    color: black;
+  }
+
+  to {
+    background-color: red;
+    color: white;
+  }
 
   10%,
   90% {
@@ -126,43 +130,49 @@
   }
 }
 
-@keyframes shiftColor {
+@keyframes shakeYellow {
   from {
     background-color: white;
+    color: black;
   }
 
   to {
-    background-color: #008450;
-  }
-}
-
-@keyframes shine {
-  10% {
-    opacity: 1;
-    top: -30%;
-    left: -30%;
-    transition-property: left, top, opacity;
-    transition-duration: 0.7s, 0.7s, 0.15s;
-    transition-timing-function: ease;
+    background-color: #E5CA66;
+    color: white;
   }
 
-  100% {
-    opacity: 0;
-    top: -30%;
-    left: -30%;
-    transition-property: left, top, opacity;
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
 @keyframes jump {
-
-  /* from {
+  from {
     background-color: white;
+    color: black;
   }
 
   to {
     background-color: #008450;
-  } */
+    color: white;
+  }
 
   0% {
     transform: translate(0%, 0%) scale(1, 1);
@@ -191,5 +201,22 @@
   100% {
     transform: translate(0%, 0%) scale(1, 1);
   }
+}
 
+@keyframes shine {
+  10% {
+    opacity: 1;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.7s, 0.7s, 0.15s;
+    transition-timing-function: ease;
+  }
+
+  100% {
+    opacity: 0;
+    top: -30%;
+    left: -30%;
+    transition-property: left, top, opacity;
+  }
 }
