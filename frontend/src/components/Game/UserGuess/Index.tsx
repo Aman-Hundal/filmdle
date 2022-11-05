@@ -1,4 +1,5 @@
 import "../../../styles/UserGuess.css";
+import { Button, Pagination, Stack } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from "react";
 import EmptyGuess from "./EmptyGuess";
@@ -17,8 +18,6 @@ const UserGuess = (props: any) => {
   //Local State
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
-  //WIP
-  const [firstTime, setFirstTime] = useState(true);
 
   //Constants
   const formattedAnswerArray: string[] = formatAnswerArr(answer);
@@ -27,14 +26,13 @@ const UserGuess = (props: any) => {
   const handleSubmit = (event: any) => {
     if (event.key === "Enter") {
       submitAnswer(guess, answer, fieldID);
-      // console.log(formattedAnswerArray)
       setSubmitted((prev: any) => prev = true);
     }
   };
 
   //useEffect to see if game is over or not. If guessCount = 3 the game is over.
   useEffect(() => {
-    gameOverCheck(guessCount)
+    gameOverCheck(guessCount);
   }, [guessCount])
 
   return (
@@ -63,8 +61,11 @@ const UserGuess = (props: any) => {
         </div>
       </form>
       <div className="buttons">
-        <p className="buttons-content" onClick={event => back()}>Back</p>
-        <p className="buttons-content" onClick={event => transition()}>Next</p>
+        <Button variant="text" sx={{ color: "black", marginRight: "10px" }} onClick={event => back()}>Back</Button>
+        <Button variant="text" sx={{ color: "black" }} onClick={event => transition()}>Next</Button>
+        {/* <Stack spacing={2}>
+          <Pagination count={3} shape="rounded" />
+        </Stack> */}
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ const MovieDetails = (props: any) => {
 
       <div className={flipContainer}>
         <div className="flipper">
-          <div className="front">
+          <div style={{ borderColor: "lightgrey" }} className="front">
             <p className="unknown-text">?</p>
           </div>
           <div className="back">
@@ -23,7 +23,7 @@ const MovieDetails = (props: any) => {
       </div>
 
       <div className="movie-details">
-        <ul className="details-list">
+        <ul style={{ borderColor: "lightgrey" }} className="details-list">
           <br />
           {movieData.year ? <li>Release Date: {movieData.year}</li> : <li>Release Date: N/A</li>}
           <br />

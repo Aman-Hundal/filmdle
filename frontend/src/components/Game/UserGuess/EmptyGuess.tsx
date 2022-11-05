@@ -13,7 +13,6 @@ const EmptyGuess = (props: any) => {
                             onChange={(event: any) => {
                                 const newKey = guess[index] = event.target.value;
                                 setGuess((prev: any) => ({ ...prev, newKey }));
-                                console.log(guess);
                             }}
                             onKeyDown={(event: any) => {
                                 // const newKey = guess[index] = event.target.value;
@@ -30,7 +29,6 @@ const EmptyGuess = (props: any) => {
                         onChange={(event: any) => {
                             const newKey = guess[index] = event.target.value;
                             setGuess((prev: any) => ({ ...prev, newKey }));
-                            console.log(guess);
                         }}
                         onKeyDown={(event: any) => {
                             // const newKey = guess[index] = event.target.value;

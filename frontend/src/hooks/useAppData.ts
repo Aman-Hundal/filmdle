@@ -35,9 +35,6 @@ const useAppData = function () {
       return elm;
     })
 
-    console.log("guess", guessArray);
-    console.log("answer", answerArray);
-
     if (answerCheck(guessArray, answerArray)) {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
@@ -47,7 +44,6 @@ const useAppData = function () {
       copyArr[field] = guessArray;
       setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
     }
-
   };
 
   const answerCheck = (guessArray: string[], answerArray: string[]): boolean => {
@@ -130,7 +126,7 @@ const useAppData = function () {
 
   useEffect(() => {
     const currentDate = new Date();
-    console.log(currentDate >= gameState.timestamp)
+    // console.log(currentDate >= gameState.timestamp)
 
     if (currentDate >= gameState.timestamp) {
       localStorage.clear();
@@ -143,7 +139,7 @@ const useAppData = function () {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       })
 
   }, []);
