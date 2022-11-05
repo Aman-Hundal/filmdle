@@ -1,6 +1,7 @@
 import SubmittedGuess from "./SubmittedGuess";
 const DisabledGuess = (props: any) => {
     const { formattedAnswerArray, previousGuess } = props;
+    
     return (
         <>
             {previousGuess ?
@@ -23,7 +24,7 @@ const DisabledGuess = (props: any) => {
                     }
                 })}
         </>
-    )
+    );
 }
 
 export default DisabledGuess;

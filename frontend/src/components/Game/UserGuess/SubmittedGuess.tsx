@@ -40,7 +40,7 @@ const SubmittedGuess = (props: any) => {
             })
             }
         </>
-    )
+    );
 }
 
 export default SubmittedGuess;

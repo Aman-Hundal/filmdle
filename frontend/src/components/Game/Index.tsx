@@ -17,7 +17,7 @@ const GameIndex = (props: any) => {
             {guess === "THREE" && <UserGuess fieldID={2} previousGuess={guessesArray[2]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
             <GuessTabs guess={guess} setGuess={setGuess} />
         </div>
-    )
-};
+    );
+}
 
 export default GameIndex;

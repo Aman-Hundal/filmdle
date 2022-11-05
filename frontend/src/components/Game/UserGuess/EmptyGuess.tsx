@@ -1,5 +1,6 @@
 const EmptyGuess = (props: any) => {
     const { formattedAnswerArray, guess, setGuess, focusField } = props;
+    
     return (
         <>
             {formattedAnswerArray.map((char: string, index: number) => {
@@ -42,7 +43,7 @@ const EmptyGuess = (props: any) => {
                 }
             })}
         </>
-    )
+    );
 }
 
 export default EmptyGuess;

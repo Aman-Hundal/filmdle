@@ -11,7 +11,6 @@ const UserGuess = (props: any) => {
   // type Guess = {
   //   letter: string;
   // }
-
   const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;
 
   //Local State
@@ -60,7 +59,7 @@ const UserGuess = (props: any) => {
         </div>
       </form>
     </div>
-  )
-};
+  );
+}
 
 export default UserGuess;

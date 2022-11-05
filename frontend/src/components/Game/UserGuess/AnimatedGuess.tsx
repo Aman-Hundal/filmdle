@@ -1,5 +1,6 @@
 const AnimatedGuess = (props: any) => {
     const { formattedAnswerArray, objToArrConversion, guess, answer } = props;
+
     return (
         <>
             {formattedAnswerArray.map((char: string, index: number) => {
@@ -43,7 +44,7 @@ const AnimatedGuess = (props: any) => {
                 }
             })}
         </>
-    )
+    );
 }
 
 export default AnimatedGuess;
