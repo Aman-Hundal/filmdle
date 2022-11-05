@@ -2,15 +2,16 @@ import "../../../styles/UserGuess.css";
 import { useState } from 'react';
 import { useEffect } from "react";
 import EmptyGuess from "./EmptyGuess";
-import SubmittedGuess from "./SubmittedGuess";
+import AnimatedGuess from "./AnimatedGuess";
 import DisabledGuess from "./DisabledGuess";
+import SubmittedGuess from "./SubmittedGuess";
 
 const UserGuess = (props: any) => {
   //TypeScript
   // type Guess = {
   //   letter: string;
   // }
-  
+
   const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
 
   //Local State
@@ -36,51 +37,29 @@ const UserGuess = (props: any) => {
     gameOverCheck(guessCount)
   }, [guessCount])
 
-  if (previousGuess) {
-    return (
-      <div className="main-input">
-        <div className="user-input">
-          {formattedAnswerArray.map((char: string, index: number) => {
-            if (char === "|") {
-              return <br key={index} />
-            }
-            if (char === previousGuess[index]) {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={char} maxLength={1} className="input-boxes-correct"></input>;
-            } else if (formattedAnswerArray.includes(previousGuess[index])) {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-includes"></input>;
-            } else {
-              return <input style={{ animationDelay: `${index * 0.5}s` }} type="text" key={index} disabled value={previousGuess[index]} maxLength={1} className="input-boxes-incorrect"></input>;
-            }
-          })
-          }
-        </div>
-        <div className="buttons">
-          <p className="buttons-content" onClick={event => back()}>Back</p>
-          <p className="buttons-content" onClick={event => transition()}>Next</p>
-        </div>
-      </div>
-    )
-  };
-
   return (
     <div className="main-input">
       <form onKeyDown={(event) => { handleSubmit(event) }} autoComplete="off">
         <div className="user-input">
           {submitted ?
-            <SubmittedGuess
+            <AnimatedGuess
               formattedAnswerArray={formattedAnswerArray}
               objToArrConversion={objToArrConversion}
               guess={guess}
               answer={answer} />
             : isCorrect && !submitted ?
               <DisabledGuess
-                formattedAnswerArray={formattedAnswerArray} />
-              : <EmptyGuess
                 formattedAnswerArray={formattedAnswerArray}
-                guess={guess}
-                setGuess={setGuess}
-                focusField={focusField} />
-          }
+                previousGuess={previousGuess} />
+              : previousGuess ?
+                <SubmittedGuess
+                  formattedAnswerArray={formattedAnswerArray}
+                  previousGuess={previousGuess} />
+                : <EmptyGuess
+                  formattedAnswerArray={formattedAnswerArray}
+                  guess={guess}
+                  setGuess={setGuess}
+                  focusField={focusField} />}
         </div>
       </form>
       <div className="buttons">

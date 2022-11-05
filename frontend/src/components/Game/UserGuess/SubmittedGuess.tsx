@@ -1,47 +1,44 @@
 const SubmittedGuess = (props: any) => {
-    const { formattedAnswerArray, objToArrConversion, guess, answer } = props;
+    const { formattedAnswerArray, previousGuess } = props;
     return (
         <>
             {formattedAnswerArray.map((char: string, index: number) => {
-                const guessArray: string[] = objToArrConversion(guess, answer);
                 if (char === "|") {
                     return <br key={index} />
                 }
-                if (char === guessArray[index]) {
-                    // console.log("CORRECT", index, char);
+                if (char === previousGuess[index]) {
                     return <input
-                        className="input-boxes-correct"
-                        style={{ animationDelay: `${index * 0.5}s` }}
+                        className="input-boxes-correct-no-anim"
+                        // style={{ animationDelay: `${index * 0.5}s` }}
                         type="text"
                         key={index}
                         disabled
                         value={char}
                         maxLength={1}>
                     </input>;
-                } else if (formattedAnswerArray.includes(guessArray[index])) {
-                    // console.log("INCLUDES", index, guessArray[index]);
+                } else if (formattedAnswerArray.includes(previousGuess[index])) {
                     return <input
-                        className="input-boxes-includes"
+                        className="input-boxes-includes-no-anim"
+                        // style={{ animationDelay: `${index * 0.5}s` }}
                         type="text"
                         key={index}
-                        style={{ animationDelay: `${index * 0.5}s` }}
                         disabled
-                        value={guessArray[index]}
+                        value={previousGuess[index]}
                         maxLength={1}>
                     </input>;
                 } else {
-                    // console.log("WRONG VALUE", index, guessArray[index]);
                     return <input
-                        className="input-boxes-incorrect"
-                        type="text"
+                        className="input-boxes-incorrect-no-anim"
                         style={{ animationDelay: `${index * 0.5}s` }}
+                        type="text"
                         key={index}
                         disabled
-                        value={guessArray[index]}
-                        maxLength={1} >
+                        value={previousGuess[index]}
+                        maxLength={1}>
                     </input>;
                 }
-            })}
+            })
+            }
         </>
     )
 }
