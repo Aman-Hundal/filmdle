@@ -1,5 +1,4 @@
 import "../../../styles/UserGuess.css";
-import { Button, Pagination, Stack } from '@mui/material';
 import { useState } from 'react';
 import { useEffect } from "react";
 import EmptyGuess from "./EmptyGuess";
@@ -13,7 +12,7 @@ const UserGuess = (props: any) => {
   //   letter: string;
   // }
 
-  const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, transition, back, formatAnswerArr } = props;
+  const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;
 
   //Local State
   const [guess, setGuess]: any = useState({});
@@ -60,13 +59,6 @@ const UserGuess = (props: any) => {
                   focusField={focusField} />}
         </div>
       </form>
-      <div className="buttons">
-        <Button variant="text" sx={{ color: "black", marginRight: "10px" }} onClick={event => back()}>Back</Button>
-        <Button variant="text" sx={{ color: "black" }} onClick={event => transition()}>Next</Button>
-        {/* <Stack spacing={2}>
-          <Pagination count={3} shape="rounded" />
-        </Stack> */}
-      </div>
     </div>
   )
 };
