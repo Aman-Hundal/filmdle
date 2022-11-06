@@ -10,7 +10,7 @@ const GuessTabs = (props: any) => {
 
     return (
         <Stack
-            sx={{ width: '100%', paddingTop: "1%" }}
+            sx={{ width: '100%', paddingTop: "1%", paddingBottom: "1%" }}
             alignItems="center"
             justifyContent="center"
         >
