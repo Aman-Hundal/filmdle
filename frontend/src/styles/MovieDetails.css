@@ -17,18 +17,17 @@
 }
 
 .details-list {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  margin-left: 70px;
+  padding: 1% 3% 1% 3%;
   list-style: none;
   text-align: left;
   font-size: larger;
   border: solid 1px;
+  border-color: lightgray;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  width: 35vw;
+  min-width: 40vw;
 }
 
 .unknown-text {
