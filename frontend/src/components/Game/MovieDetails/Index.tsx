@@ -1,18 +1,18 @@
-import { Stack, Grid, Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import "../../../styles/MovieDetails.css";
-import MovieInfo from "./MovieInfo";
 import MoviePoster from "./MoviePoster";
 
 const MovieDetails = (props: any) => {
   const { movieData, gameOver, isCorrect, answer } = props;
 
   return (
-    <Box
-      className="movie-header"
+    <Stack
+      justifyContent="center"
+      alignItems="center"
+      sx={{ padding: "0% 0% 2% 0%", width: "100%" }}
     >
-      <MoviePoster movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} />
-      <MovieInfo movieData={movieData} answer={answer} />
-    </Box >
+      <MoviePoster movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={answer} />
+    </Stack >
   );
 }
 

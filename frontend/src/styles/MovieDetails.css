@@ -8,6 +8,108 @@
 }
 
 .poster {
+  height: 550px;
+  width: 900px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.details-list {
+  list-style: none;
+  padding: 5%;
+  height: 550px;
+  width: 900px;
+  text-align: left;
+  font-size: larger;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.unknown-text {
+  font-size: 55px;
+  margin-top: 170px;
+  text-align: center;
+}
+
+/* entire container, keeps perspective */
+.flip-container {
+  perspective: 1000px;
+}
+
+.flip-container,
+.front,
+.back {
+  height: 550px;
+  width: 900px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* flip speed goes here */
+.flipper {
+  transition: 1.5s;
+  transform-style: preserve-3d;
+
+  position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  border: solid 1px;
+  height: 550px;
+  width: 900px;
+  border-color: lightgrey;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+
+.non-flip {
+  height: 550px;
+  width: 900px;
+}
+
+.flip-container .flipper,
+.flip-container .flipper,
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+/* .movie-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+  margin-bottom: 30px;
+}
+
+.poster {
   width: 300px;
 	height: 450px;
   border-top-left-radius: 20px;
@@ -36,8 +138,6 @@
   text-align: center;
 }
 
-
-/* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
 }
@@ -49,14 +149,14 @@
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
 }
-/* flip speed goes here */
+
 .flipper {
 	transition: 1.5s;
 	transform-style: preserve-3d;
 
 	position: relative;
 }
-/* hide back of pane during swap */
+
 .front, .back {
 	backface-visibility: hidden;
 
@@ -64,7 +164,7 @@
 	top: 0;
 	left: 0;
 }
-/* front pane, placed above back */
+
 .front {
 	z-index: 2;
   border: solid 1px;
@@ -74,10 +174,9 @@
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-	/* for firefox 31 */
 	transform: rotateY(0deg);
 }
-/* back, initially hidden pane */
+
 .back {
 	transform: rotateY(180deg);
 }
@@ -87,15 +186,4 @@
 }
 .flip-container .flipper, .flip-container .flipper, .flip-container.flip .flipper {
 	transform: rotateY(180deg);
-}
-
-/* .unknown-image {
-  border: solid 1px;
-  width: 281px;
-  height: 421px;
-  margin-right: 75px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-  border-bottom-left-radius: 20px;
 } */
