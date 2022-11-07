@@ -10,7 +10,10 @@
 .poster {
   height: 55vh;
   width: 50vw;
+  object-fit: fill;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  /* border: 1px solid;
+  border-color: white; */
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -71,6 +74,7 @@
   /* border: solid 1px;
   border-color: lightgrey; */
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: white;
   height: 55vh;
   width: 50vw;
   border-top-left-radius: 20px;

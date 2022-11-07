@@ -1,5 +1,6 @@
 .user-input {
   width: 100%;
+  padding: 1% 0% 0% 0%;
   /* display: flex;
   flex-direction: row;
   justify-content: center; */
@@ -36,7 +37,9 @@
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
+  color: black;
   border-color: lightgrey;
+  background-color: white;
   animation: jump 1s ease;
   animation-fill-mode: forwards;
   font-family: 'Montserrat', sans-serif;
@@ -54,7 +57,7 @@
   font-size: x-large;
   text-transform: uppercase;
   color: white;
-  background-color: #008450;
+  background-color: black;
   border-color: lightgrey;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -70,7 +73,9 @@
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
+  color: black;
   border-color: lightgrey;
+  background-color: white;
   animation: shakeYellow 0.82s cubic-bezier(.36, .07, .19, .97) both;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -86,7 +91,7 @@
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
-  background-color: #E5CA66;
+  background-color: gray;
   color: white;
   border-color: lightgrey;
   font-family: 'Montserrat', sans-serif;
@@ -104,6 +109,8 @@
   font-size: x-large;
   text-transform: uppercase;
   border-color: lightgrey;
+  background-color: white;
+  color: black;
   animation: shakeRed 0.82s cubic-bezier(.36, .07, .19, .97) both;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -119,8 +126,8 @@
   text-align: center;
   font-size: x-large;
   text-transform: uppercase;
-  background-color: red;
-  color: white;
+  background-color: white;
+  color: black;
   border-color: lightgrey;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -144,15 +151,6 @@
 }
 
 @keyframes shakeRed {
-  from {
-    background-color: white;
-    color: black;
-  }
-
-  to {
-    background-color: red;
-    color: white;
-  }
 
   10%,
   90% {
@@ -183,7 +181,7 @@
   }
 
   to {
-    background-color: #E5CA66;
+    background-color: gray;
     color: white;
   }
 
@@ -216,7 +214,7 @@
   }
 
   to {
-    background-color: #008450;
+    background-color: black;
     color: white;
   }
 

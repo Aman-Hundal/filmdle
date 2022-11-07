@@ -1,6 +1,7 @@
 import { Stack } from "@mui/material";
 import "../../../styles/MovieDetails.css";
 import MoviePoster from "./MoviePoster";
+import { grey } from "@mui/material/colors";
 
 const MovieDetails = (props: any) => {
   const { movieData, gameOver, isCorrect, answer } = props;
@@ -9,7 +10,7 @@ const MovieDetails = (props: any) => {
     <Stack
       justifyContent="center"
       alignItems="center"
-      sx={{ padding: "0% 0% 2% 0%", width: "100%" }}
+      sx={{ padding: "1% 0% 1% 0%", width: "100%" }}
     >
       <MoviePoster movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={answer} />
     </Stack >

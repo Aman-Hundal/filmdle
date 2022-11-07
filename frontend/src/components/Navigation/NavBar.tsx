@@ -14,7 +14,8 @@ const NavBar = (prop: any) => {
             sx={{
                 width: "100%",
                 padding: "0.5%",
-                backgroundColor: grey[900]
+                backgroundColor: grey[900],
+                // borderBottom: "10px solid #ffffff"
             }}
         >
             <Grid item>
