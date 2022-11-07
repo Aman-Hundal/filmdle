@@ -10,6 +10,7 @@
 .poster {
   height: 55vh;
   width: 50vw;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -67,8 +68,9 @@
 /* front pane, placed above back */
 .front {
   z-index: 2;
-  border: solid 1px;
-  border-color: lightgrey;
+  /* border: solid 1px;
+  border-color: lightgrey; */
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   height: 55vh;
   width: 50vw;
   border-top-left-radius: 20px;
