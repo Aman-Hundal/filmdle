@@ -18,7 +18,7 @@
 
 .details-list {
   list-style: none;
-  padding: 5%;
+  /* padding: 5%; */
   height: 550px;
   width: 900px;
   text-align: left;
