@@ -19,14 +19,15 @@ const palette = {
 const filmdleTheme = createTheme({
     palette: palette,
 
-    typography: {
-        // fontFamily: ["Work Sans, sans-serif"],
-        // h1: {
-        //     color: palette.primary.main,
-        //     fontWeight: "900",
-        //     textSizeAdjust: "100%",
-        // },
-    },
+    // typography: {
+    //     fontFamily: ["Work Sans, sans-serif"],
+    //     h5: {
+    //         color: palette.primary.main,
+    //         fontWeight: "500",
+    //         fontSize: "20px",
+    //         textSizeAdjust: "100%",
+    //     },
+    // },
 
     components: {
         fontFamily: ["Work Sans, sans-serif"],

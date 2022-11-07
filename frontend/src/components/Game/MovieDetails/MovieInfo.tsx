@@ -1,5 +1,5 @@
 
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import MovieIcon from '@mui/icons-material/Movie';
 import TheatersIcon from '@mui/icons-material/Theaters';
@@ -17,27 +17,89 @@ const MovieInfo = (props: any) => {
 
     return (
         <Stack
-            sx={{ width: "100%", height: "100%", }}
+            sx={{ width: "100%", height: "100%", padding: "3%" }}
         >
-            <ul style={{ listStyle: "none", textAlign: "left" }}>
-                <br />
-                {movieData.year ? <li>Release Date: {movieData.year}</li> : <li>Release Date: N/A</li>}
-                <br />
-                {movieData.runtimeStr ? <li>Runtime: {movieData.runtimeStr}</li> : <li>Runtime: N/A</li>}
-                <br />
-                {movieData.metacriticRating ? <li>Metacritic Rating: {movieData.metacriticRating}/100</li> : <li>Metacritic Rating: N/A</li>}
-                <br />
-                {movieData.imDbRating ? <li>IMDB Rating: {movieData.imDbRating}/10</li> : <li>IMDB Rating: N/A</li>}
-                <br />
-                {movieData.contentRating ? <li>Content Rating: {movieData.contentRating}</li> : <li>Content Rating: N/A</li>}
-                <br />
-                {movieData.genres ? <li>Genres: {movieData.genres}</li> : <li>Genres: N/A</li>}
-                <br />
-                {movieData.awards ? <li>Accolades: IMDB {movieData.awards}</li> : <li>Accolades: N/A</li>}
-                <br />
-                <li>Letters: {answerLetterCount}</li>
-                <br />
-            </ul>
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <CalendarMonthIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.year ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Release Date: {movieData.year}</Typography> : <Typography>Release Date: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <TheatersIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.runtimeStr ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Runtime: {movieData.runtimeStr}</Typography> : <Typography>Runtime: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <StarIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.metacriticRating ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Metacritic Rating: {movieData.metacriticRating}/100</Typography> : <Typography>Metacritic Rating: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <ReviewsIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.imDbRating ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>IMDB Rating: {movieData.imDbRating}/10</Typography> : <Typography>IMDB Rating: N/A</Typography>}
+            </Stack>
+
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <EighteenUpRatingIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.contentRating ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Content Rating: {movieData.contentRating}</Typography> : <Typography>Content Rating: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <TheaterComedyIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.genres ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Genres: {movieData.genres}</Typography> : <Typography>Genres: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <EmojiEventsIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                {movieData.awards ? <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Accolades: IMDB {movieData.awards}</Typography> : <Typography>Accolades: N/A</Typography>}
+            </Stack>
+
+            <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="flex-start"
+                sx={{ paddingBottom: "2.5%" }}
+            >
+                <MovieIcon sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)", color: "black", paddingRight: "1%" }} />
+                <Typography sx={{ fontWeight: 300, fontSize: " clamp(0.8rem, 1.5vw, 1.5rem)" }}>Letters: {answerLetterCount}</Typography>
+            </Stack>
+
         </Stack>
     );
 }
