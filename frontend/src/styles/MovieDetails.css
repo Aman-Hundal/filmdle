@@ -16,17 +16,17 @@
   border-bottom-left-radius: 20px;
 }
 
-.details-list {
+/* .details-list {
   list-style: none;
-  height: 55vh;
-  width: 50vw;
   text-align: left;
   font-size: larger;
+  border: solid 1px;
+  border-color: pink;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-}
+} */
 
 /* entire container, keeps perspective */
 .flip-container {
@@ -56,6 +56,8 @@
 .front,
 .back {
   backface-visibility: hidden;
+  /* border: solid 1px;
+  border-color: red; */
 
   position: absolute;
   top: 0;
@@ -66,9 +68,10 @@
 .front {
   z-index: 2;
   border: solid 1px;
+  border-color: lightgrey;
+  font-size: larger;
   height: 55vh;
   width: 50vw;
-  border-color: lightgrey;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
