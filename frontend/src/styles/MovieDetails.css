@@ -8,8 +8,8 @@
 }
 
 .poster {
-  height: 550px;
-  width: 900px;
+  height: 55vh;
+  width: 50vw;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -19,20 +19,14 @@
 .details-list {
   list-style: none;
   /* padding: 5%; */
-  height: 550px;
-  width: 900px;
+  height: 55vh;
+  width: 50vw;
   text-align: left;
   font-size: larger;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-}
-
-.unknown-text {
-  font-size: 55px;
-  margin-top: 170px;
-  text-align: center;
 }
 
 /* entire container, keeps perspective */
@@ -43,8 +37,8 @@
 .flip-container,
 .front,
 .back {
-  height: 550px;
-  width: 900px;
+  height: 55vh;
+  width: 50vw;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -53,7 +47,7 @@
 
 /* flip speed goes here */
 .flipper {
-  transition: 1.5s;
+  transition: 1s;
   transform-style: preserve-3d;
 
   position: relative;
@@ -73,8 +67,8 @@
 .front {
   z-index: 2;
   border: solid 1px;
-  height: 550px;
-  width: 900px;
+  height: 55vh;
+  width: 50vw;
   border-color: lightgrey;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -90,8 +84,8 @@
 }
 
 .non-flip {
-  height: 550px;
-  width: 900px;
+  height: 55vh;
+  width: 50vw;
 }
 
 .flip-container .flipper,
