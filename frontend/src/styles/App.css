@@ -40,7 +40,8 @@
 .goodbye {
   font-size: larger;
   text-align: center;
-  margin-top: 2%;
+  margin: 0;
+  padding: 1.5% 0 0 0;
 }
 
 .title {

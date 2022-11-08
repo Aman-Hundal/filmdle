@@ -22,7 +22,7 @@ function App() {
       {!loading ?
         <div className="App">
           <NavBar />
-          {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The movie was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
+          {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The film was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
           <GameIndex
             focusField={focusField}
             isCorrect={gameState.isCorrect}
