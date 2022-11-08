@@ -9,7 +9,6 @@ const SubmittedGuess = (props: any) => {
                 if (char === previousGuess[index]) {
                     return <input
                         className="input-boxes-correct-no-anim"
-                        // style={{ animationDelay: `${index * 0.5}s` }}
                         type="text"
                         key={index}
                         disabled
@@ -19,7 +18,6 @@ const SubmittedGuess = (props: any) => {
                 } else if (formattedAnswerArray.includes(previousGuess[index])) {
                     return <input
                         className="input-boxes-includes-no-anim"
-                        // style={{ animationDelay: `${index * 0.5}s` }}
                         type="text"
                         key={index}
                         disabled
@@ -29,7 +27,6 @@ const SubmittedGuess = (props: any) => {
                 } else {
                     return <input
                         className="input-boxes-incorrect-no-anim"
-                        style={{ animationDelay: `${index * 0.5}s` }}
                         type="text"
                         key={index}
                         disabled

@@ -1,6 +1,9 @@
 const AnimatedGuess = (props: any) => {
     const { formattedAnswerArray, objToArrConversion, guess, answer } = props;
 
+    //Local Variables
+    let timer = -1;
+
     return (
         <>
             {formattedAnswerArray.map((char: string, index: number) => {
@@ -10,9 +13,10 @@ const AnimatedGuess = (props: any) => {
                 }
                 if (char === guessArray[index]) {
                     // console.log("CORRECT", index, char);
+                    timer++;
                     return <input
                         className="input-boxes-correct"
-                        style={{ animationDelay: `${index * 0.5}s` }}
+                        style={{ animationDelay: `${timer * 0.5}s` }}
                         type="text"
                         key={index}
                         disabled
@@ -21,21 +25,23 @@ const AnimatedGuess = (props: any) => {
                     </input>;
                 } else if (formattedAnswerArray.includes(guessArray[index])) {
                     // console.log("INCLUDES", index, guessArray[index]);
+                    timer++;
                     return <input
                         className="input-boxes-includes"
                         type="text"
                         key={index}
-                        style={{ animationDelay: `${index * 0.5}s` }}
+                        style={{ animationDelay: `${timer * 0.5}s` }}
                         disabled
                         value={guessArray[index]}
                         maxLength={1}>
                     </input>;
                 } else {
                     // console.log("WRONG VALUE", index, guessArray[index]);
+                    timer++;
                     return <input
                         className="input-boxes-incorrect"
                         type="text"
-                        style={{ animationDelay: `${index * 0.5}s` }}
+                        style={{ animationDelay: `${timer * 0.5}s` }}
                         key={index}
                         disabled
                         value={guessArray[index]}

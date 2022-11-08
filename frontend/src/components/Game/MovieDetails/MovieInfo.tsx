@@ -30,8 +30,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <CalendarMonthIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.year ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Release Date: {movieData.year}</Typography> : <Typography>Release Date: N/A</Typography>}
+                    <CalendarMonthIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.year ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Release Date: {movieData.year}</Typography> : <Typography>Release Date: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -42,8 +42,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <TheatersIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.runtimeStr ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Runtime: {movieData.runtimeStr}</Typography> : <Typography>Runtime: N/A</Typography>}
+                    <TheatersIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.runtimeStr ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Runtime: {movieData.runtimeStr}</Typography> : <Typography>Runtime: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -54,8 +54,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <StarIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.metacriticRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Metacritic Rating: {movieData.metacriticRating}/100</Typography> : <Typography>Metacritic Rating: N/A</Typography>}
+                    <StarIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.metacriticRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Metacritic Rating: {movieData.metacriticRating}/100</Typography> : <Typography>Metacritic Rating: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -66,8 +66,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <ReviewsIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.imDbRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>IMDB Rating: {movieData.imDbRating}/10</Typography> : <Typography>IMDB Rating: N/A</Typography>}
+                    <ReviewsIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.imDbRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>IMDB Rating: {movieData.imDbRating}/10</Typography> : <Typography>IMDB Rating: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -78,8 +78,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <EighteenUpRatingIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.contentRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Content Rating: {movieData.contentRating}</Typography> : <Typography>Content Rating: N/A</Typography>}
+                    <EighteenUpRatingIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.contentRating ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Content Rating: {movieData.contentRating}</Typography> : <Typography>Content Rating: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -90,8 +90,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <TheaterComedyIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.genres ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Genres: {movieData.genres}</Typography> : <Typography>Genres: N/A</Typography>}
+                    <TheaterComedyIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.genres ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Genres: {movieData.genres}</Typography> : <Typography>Genres: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -102,8 +102,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <EmojiEventsIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    {movieData.awards ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Accolades: IMDB {movieData.awards}</Typography> : <Typography>Accolades: N/A</Typography>}
+                    <EmojiEventsIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    {movieData.awards ? <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Accolades: IMDB {movieData.awards}</Typography> : <Typography>Accolades: N/A</Typography>}
                 </Stack>
             </Grid>
             <Grid
@@ -114,8 +114,8 @@ const MovieInfo = (props: any) => {
                     alignItems="center"
                     justifyContent="flex-start"
                 >
-                    <MovieIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)", color: "black", paddingRight: "1%" }} />
-                    <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.3rem)" }}>Letters: {answerLetterCount}</Typography>
+                    <MovieIcon sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)", color: "black", paddingRight: "1%" }} />
+                    <Typography sx={{ fontWeight: 300, fontSize: "clamp(0.8rem, 1.5vw, 1.6rem)" }}>Letters: {answerLetterCount}</Typography>
                 </Stack>
             </Grid>
         </Grid>
