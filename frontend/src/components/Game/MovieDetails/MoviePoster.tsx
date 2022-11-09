@@ -6,6 +6,7 @@ const MoviePoster = (props: any) => {
 
     //Constants
     let flipContainer: string = classNames('non-flip', { "flip-container": isCorrect || gameOver });
+    let fadeIn: string = classNames('front-fade', { "front-transparent": isCorrect || gameOver });
     const movieImage: string = movieData.image;
 
     return (
@@ -19,6 +20,12 @@ const MoviePoster = (props: any) => {
                 </div>
             </div>
         </div>
+        // <>
+        //     <img className="back-fade" src={movieImage} />
+        //     <div className={fadeIn}>
+        //         <MovieInfo movieData={movieData} answer={answer} />
+        //     </div>
+        // </>
     );
 }
 

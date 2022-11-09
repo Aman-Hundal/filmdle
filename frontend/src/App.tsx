@@ -15,7 +15,7 @@ function App() {
     formatAnswerArr
   } = useAppData();
 
-  console.log(gameState)
+  console.log(gameState);
 
   return (
     <>
