@@ -1,7 +1,7 @@
 import { Tabs, Tab, Stack } from '@mui/material';
 
 const GuessTabs = (props: any) => {
-    const { guess, setGuess } = props;
+    const { guess, setGuess, isCorrect } = props;
 
     //Handle and control tab selection
     const handleChange = (event: any, newValue: string) => {
@@ -10,7 +10,7 @@ const GuessTabs = (props: any) => {
 
     return (
         <Stack
-            sx={{ width: '100%', paddingTop: "0.3%", paddingBottom: "1%" }}
+            sx={{ width: '100%', paddingTop: "0.5%", paddingBottom: "1%" }}
             alignItems="center"
             justifyContent="center"
         >
@@ -20,9 +20,9 @@ const GuessTabs = (props: any) => {
                 textColor="primary"
                 indicatorColor="primary"
             >
-                <Tab onClick={() => setGuess("ONE")} value="ONE" label="First Guess" />
-                <Tab onClick={() => setGuess("TWO")} value="TWO" label="Second Guess" />
-                <Tab onClick={() => setGuess("THREE")} value="THREE" label="Third Guess" />
+                <Tab disabled={isCorrect} onClick={() => setGuess("ONE")} value="ONE" label="First Guess" />
+                <Tab disabled={isCorrect} onClick={() => setGuess("TWO")} value="TWO" label="Second Guess" />
+                <Tab disabled={isCorrect} onClick={() => setGuess("THREE")} value="THREE" label="Third Guess" />
             </Tabs>
         </Stack>
     );

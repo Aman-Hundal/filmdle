@@ -1,6 +1,6 @@
 .user-input {
   width: 100%;
-  padding: 1.5% 0% 0% 0%;
+  padding: 1% 0% 0% 0%;
   /* display: flex;
   flex-direction: row;
   justify-content: center; */
@@ -12,8 +12,8 @@
 .input-boxes {
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   border: solid 1px;
   outline: none;
   resize: none;
@@ -31,8 +31,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -50,8 +50,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -67,8 +67,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -85,8 +85,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -102,8 +102,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -120,8 +120,8 @@
   border: solid 1px;
   height: 60px;
   width: 60px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 4px;
+  margin-left: 4px;
   resize: none;
   text-align: center;
   font-size: x-large;
@@ -131,23 +131,6 @@
   border-color: lightgrey;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  padding: 0.5%;
-
-}
-
-.buttons-content {
-  cursor: pointer;
-  font-size: large;
-  margin-left: 10px;
-}
-
-.buttons-content:hover {
-  color: blue;
 }
 
 @keyframes shakeRed {

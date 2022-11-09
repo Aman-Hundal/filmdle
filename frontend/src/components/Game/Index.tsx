@@ -15,7 +15,7 @@ const GameIndex = (props: any) => {
             {guess === "ONE" && <UserGuess fieldID={0} previousGuess={guessesArray[0]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
             {guess === "TWO" && <UserGuess fieldID={1} previousGuess={guessesArray[1]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
             {guess === "THREE" && <UserGuess fieldID={2} previousGuess={guessesArray[2]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
-            <GuessTabs guess={guess} setGuess={setGuess} />
+            <GuessTabs guess={guess} setGuess={setGuess} isCorrect={isCorrect} />
         </div>
     );
 }
