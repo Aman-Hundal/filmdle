@@ -21,7 +21,7 @@ const MoviePoster = (props: any) => {
         //     </div>
         // </div>
         <div className="fade-container">
-            <img className="top" src={movieImage} />
+            <img alt="movie-poster" className="top" src={movieImage} />
             <div className={fadeOut}>
                 <MovieInfo movieData={movieData} />
             </div>

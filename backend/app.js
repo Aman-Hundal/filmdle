@@ -1,41 +1,36 @@
-require('dotenv').config();
+require('dotenv').config({ path: "../.env" });
 const express = require('express');
 const app = express();
 const userResults = require('./routes/userResults');
 const morgan = require('morgan');
-const path = require('path');
-const mongoose = require('mongoose');  // ODM system for MongoDB (creates models for collections and etc)
-const port = process.env.PORT || 3001;
-// const dbURL = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@cluster0.nilng.mongodb.net/${process.env.MONGODB_HOST}?retryWrites=true&w=majority`;
+const mongoose = require('mongoose');  // ODM system for MongoDB (creates models for collections and etc). mongoose is a async library
+const PORT = process.env.PORT || 3001;
 const cors = require('cors');
+const connectDb = require('./db/dbConfig');
+const path = require('path');
 
-//middleware
+//Connect to DB
+connectDb();
+
+//Middleware
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+//app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
-//routes
+//Routes
 app.use('/api/userresults', userResults);
+app.get('/', (req, res) => {
+    res.send("index page");
+})
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 // })
-app.get('/', (req, res) => {
-    res.send("index page")
-})
 
-//Turn server on using port
-app.listen(port, () => {
-    console.log(`App listening on ${port}`);
+//Turn server on if db connected successfully
+mongoose.connection.once('open', () => {
+    console.log("Connected to DB successfully");
+    app.listen(PORT, () => {
+        console.log(`App listening on ${PORT}`);
+    })
 })
-
-// //DB setup
-// mongoose.connect(dbURL)
-// .then((result) => {
-//   app.listen(port, () => {
-//     console.log(`DB connected. Server listening on port ${port}.`);
-//   })
-// })
-// .catch((error) => {
-//   console.log(error);
-// })
