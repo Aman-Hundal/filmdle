@@ -4,18 +4,60 @@ import GuessTabs from "./UserGuess/GuessTabs";
 import { useState } from "react";
 
 const GameIndex = (props: any) => {
-    const { movieData, guessesArray, gameOver, answer, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;
+    const { movieData, gameData, submitAnswer, objToArrConversion, gameOverCheck, focusField, formatAnswerArr, saveResult } = props;
 
     //Local State
     const [guess, setGuess] = useState('ONE');
 
     return (
         <div>
-            <MovieDetails movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={answer} />
-            {guess === "ONE" && <UserGuess fieldID={0} previousGuess={guessesArray[0]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
-            {guess === "TWO" && <UserGuess fieldID={1} previousGuess={guessesArray[1]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
-            {guess === "THREE" && <UserGuess fieldID={2} previousGuess={guessesArray[2]} formatAnswerArr={formatAnswerArr} movieData={movieData} isCorrect={isCorrect} gameOver={gameOver} answer={answer} submitAnswer={submitAnswer} focusField={focusField} objToArrConversion={objToArrConversion} guessCount={guessCount} gameOverCheck={gameOverCheck} />}
-            <GuessTabs guess={guess} setGuess={setGuess} isCorrect={isCorrect} />
+            <MovieDetails movieData={movieData} gameOver={gameData.gameOver} isCorrect={gameData.isCorrect} answer={movieData.title} />
+            {guess === "ONE" &&
+                <UserGuess
+                    fieldID={0}
+                    gameData={gameData}
+                    movieData={movieData}
+                    saveResult={saveResult}
+                    previousGuess={gameData.guessesArray[0]}
+                    formatAnswerArr={formatAnswerArr}
+                    isCorrect={gameData.isCorrect}
+                    gameOver={gameData.gameOver}
+                    submitAnswer={submitAnswer}
+                    focusField={focusField}
+                    objToArrConversion={objToArrConversion}
+                    guessCount={gameData.guessCount}
+                    gameOverCheck={gameOverCheck} />}
+            {guess === "TWO" &&
+                <UserGuess
+                    fieldID={1}
+                    gameData={gameData}
+                    movieData={movieData}
+                    saveResult={saveResult}
+                    previousGuess={gameData.guessesArray[1]}
+                    formatAnswerArr={formatAnswerArr}
+                    isCorrect={gameData.isCorrect}
+                    gameOver={gameData.gameOver}
+                    submitAnswer={submitAnswer}
+                    focusField={focusField}
+                    objToArrConversion={objToArrConversion}
+                    guessCount={gameData.guessCount}
+                    gameOverCheck={gameOverCheck} />}
+            {guess === "THREE" &&
+                <UserGuess
+                    fieldID={2}
+                    gameData={gameData}
+                    movieData={movieData}
+                    saveResult={saveResult}
+                    previousGuess={gameData.guessesArray[2]}
+                    formatAnswerArr={formatAnswerArr}
+                    isCorrect={gameData.isCorrect}
+                    gameOver={gameData.gameOver}
+                    submitAnswer={submitAnswer}
+                    focusField={focusField}
+                    objToArrConversion={objToArrConversion}
+                    guessCount={gameData.guessCount}
+                    gameOverCheck={gameOverCheck} />}
+            <GuessTabs guess={guess} setGuess={setGuess} isCorrect={gameData.isCorrect} gameOver={gameData.gameOver} />
         </div>
     );
 }

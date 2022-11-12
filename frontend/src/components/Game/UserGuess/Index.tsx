@@ -11,19 +11,19 @@ const UserGuess = (props: any) => {
   // type Guess = {
   //   letter: string;
   // }
-  const { answer, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;
+  const { gameData, movieData, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr, saveResult } = props;
 
   //Local State
   const [guess, setGuess]: any = useState({});
   const [submitted, setSubmitted]: any = useState(false);
 
   //Constants
-  const formattedAnswerArray: string[] = formatAnswerArr(answer);
+  const formattedAnswerArray: string[] = formatAnswerArr(movieData.title);
 
   //Handle Submit function which takes in a users guess.
   const handleSubmit = (event: any) => {
     if (event.key === "Enter") {
-      submitAnswer(guess, answer, fieldID);
+      submitAnswer(guess, movieData.title, fieldID);
       setSubmitted((prev: any) => prev = true);
     }
   };
@@ -42,7 +42,7 @@ const UserGuess = (props: any) => {
               formattedAnswerArray={formattedAnswerArray}
               objToArrConversion={objToArrConversion}
               guess={guess}
-              answer={answer} />
+              answer={movieData.title} />
             : isCorrect && !submitted ?
               <DisabledGuess
                 formattedAnswerArray={formattedAnswerArray}

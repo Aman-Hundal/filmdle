@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -7,6 +6,7 @@ const useAppData = function () {
     [apiData: string]: string | string[];
   };
 
+  //Global State
   const [gameState, setGameState]: any = useState(
     localStorage.getItem("gameData") ? JSON.parse(localStorage.getItem("gameData") || "{}") :
       {
@@ -20,10 +20,12 @@ const useAppData = function () {
   const [movieState, setMovieState]: any = useState({});
   const [loading, setLoading]: any = useState(true);
 
-  // tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
+  //Constants
+  //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
   const movieID: string = 'tt1877830';
   const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
 
+  //Functions
   const submitAnswer = (guessObj: any, answer: string, field: number) => {
     const guessArray: string[] = objToArrConversion(guessObj, answer);
     const formattedArray: string[] = formatAnswerArr(answer);
@@ -31,7 +33,6 @@ const useAppData = function () {
       if (elm === "|") {
         return elm = "";
       }
-
       return elm;
     })
 
@@ -39,7 +40,28 @@ const useAppData = function () {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
       setGameState((prev: any) => ({ ...prev, isCorrect: true, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
-    } else {
+      const gameData: any = {
+        user: "ipAddy",
+        win: true,
+        guessesArray: copyArr,
+        guessCount: gameState.guessCount + 1,
+        endDate: gameState.timeStamp,
+      }
+      saveResult(gameData, movieState);
+    } else if ((gameState.guessCount + 1) === 3) {
+      const copyArr = [...gameState.guessesArray];
+      copyArr[field] = guessArray;
+      setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
+      const gameData: any = {
+        user: "ipAddy",
+        win: false,
+        guessesArray: copyArr,
+        guessCount: gameState.guessCount + 1,
+        endDate: gameState.timeStamp,
+      }
+      saveResult(gameData, movieState);
+    }
+    else {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
       setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
@@ -121,13 +143,31 @@ const useAppData = function () {
     });
 
     return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").split("");
-
   };
+
+  const saveResult = async (gameData: any, movieData: any) => {
+    const data = {
+      user: gameData.user,
+      win: gameData.win,
+      guesses: gameData.guessesArray,
+      guessCount: gameData.guessCount,
+      movieID: movieData.id,
+      movieName: movieData.title,
+      endDate: gameData.endDate,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:3001/", data);
+      console.log(response);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
     const currentDate = new Date();
     // console.log(currentDate >= gameState.timestamp)
-
     if (currentDate >= gameState.timestamp) {
       localStorage.clear();
     }
@@ -141,7 +181,6 @@ const useAppData = function () {
       .catch((error) => {
         console.error(error);
       })
-
   }, []);
 
   useEffect(() => {
@@ -157,9 +196,9 @@ const useAppData = function () {
     arrToObjConversion,
     gameOverCheck,
     focusField,
-    formatAnswerArr
+    formatAnswerArr,
+    saveResult,
   };
-
 };
 
 export default useAppData;

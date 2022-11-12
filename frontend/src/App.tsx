@@ -12,10 +12,11 @@ function App() {
     objToArrConversion,
     gameOverCheck,
     focusField,
-    formatAnswerArr
+    formatAnswerArr,
+    saveResult,
   } = useAppData();
 
-  console.log(gameState);
+  // console.log(gameState);
 
   return (
     <>
@@ -25,17 +26,13 @@ function App() {
           {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The film was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
           <GameIndex
             focusField={focusField}
-            isCorrect={gameState.isCorrect}
             objToArrConversion={objToArrConversion}
             formatAnswerArr={formatAnswerArr}
             gameOverCheck={gameOverCheck}
-            guessCount={gameState.guessCount}
-            movieData={movieState}
-            guessesArray={gameState.guessesArray}
             submitAnswer={submitAnswer}
-            answer={movieState.title}
-            gameOver={gameState.gameOver}
-            guessCounter={gameState.guessCount} />
+            saveResult={saveResult}
+            movieData={movieState}
+            gameData={gameState} />
         </div> : null}
     </>
   );
