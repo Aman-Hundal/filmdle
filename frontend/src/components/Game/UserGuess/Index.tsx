@@ -11,7 +11,7 @@ const UserGuess = (props: any) => {
   // type Guess = {
   //   letter: string;
   // }
-  const { gameData, movieData, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr, saveResult } = props;
+  const { movieData, previousGuess, fieldID, submitAnswer, objToArrConversion, gameOverCheck, guessCount, isCorrect, focusField, formatAnswerArr } = props;
 
   //Local State
   const [guess, setGuess]: any = useState({});

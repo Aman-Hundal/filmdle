@@ -2,7 +2,7 @@ import classNames from "classnames";
 import MovieInfo from "./MovieInfo";
 
 const MoviePoster = (props: any) => {
-    const { isCorrect, gameOver, movieData, answer, } = props;
+    const { isCorrect, gameOver, movieData } = props;
 
     //Constants
     let flipContainer: string = classNames('non-flip', { "flip-container": isCorrect || gameOver });
@@ -23,7 +23,7 @@ const MoviePoster = (props: any) => {
         <div className="fade-container">
             <img className="top" src={movieImage} />
             <div className={fadeOut}>
-                <MovieInfo movieData={movieData} answer={answer} />
+                <MovieInfo movieData={movieData} />
             </div>
         </div>
     );

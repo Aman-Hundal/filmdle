@@ -11,11 +11,10 @@ const GameIndex = (props: any) => {
 
     return (
         <div>
-            <MovieDetails movieData={movieData} gameOver={gameData.gameOver} isCorrect={gameData.isCorrect} answer={movieData.title} />
+            <MovieDetails movieData={movieData} gameOver={gameData.gameOver} isCorrect={gameData.isCorrect} />
             {guess === "ONE" &&
                 <UserGuess
                     fieldID={0}
-                    gameData={gameData}
                     movieData={movieData}
                     saveResult={saveResult}
                     previousGuess={gameData.guessesArray[0]}
@@ -30,7 +29,6 @@ const GameIndex = (props: any) => {
             {guess === "TWO" &&
                 <UserGuess
                     fieldID={1}
-                    gameData={gameData}
                     movieData={movieData}
                     saveResult={saveResult}
                     previousGuess={gameData.guessesArray[1]}
@@ -45,7 +43,6 @@ const GameIndex = (props: any) => {
             {guess === "THREE" &&
                 <UserGuess
                     fieldID={2}
-                    gameData={gameData}
                     movieData={movieData}
                     saveResult={saveResult}
                     previousGuess={gameData.guessesArray[2]}

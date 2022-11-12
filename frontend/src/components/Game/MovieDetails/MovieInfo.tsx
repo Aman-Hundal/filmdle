@@ -10,10 +10,10 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import TheaterComedyIcon from '@mui/icons-material/TheaterComedy';
 
 const MovieInfo = (props: any) => {
-    const { movieData, answer } = props;
+    const { movieData } = props;
 
     //Cosntants
-    const answerLetterCount: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
+    const answerLetterCount: number = movieData.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
 
     return (
         <Grid
