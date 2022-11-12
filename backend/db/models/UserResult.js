@@ -11,7 +11,7 @@ const userResultSchema = new Schema({ //creates instance of schema object
         required: true
     },
     guesses: {
-        type: [String],
+        type: [[String]],
         required: true
     },
     guessCount: {
@@ -32,6 +32,6 @@ const userResultSchema = new Schema({ //creates instance of schema object
     },
 }, { timestamps: true });
 
-const UserResult = mongoose.model('UserResult', userResultSchema); //first arg is name of model. KEEP IT SINGULAR, mongoose will pluralize it. The MongoDb collection is plural lower case like a table (called matchs). Second arg is the schema object that we want to base this model on
+const UserResult = mongoose.model('UserResult', userResultSchema); //first arg is name of model. KEEP IT SINGULAR, mongoose will pluralize it AND lower case it. The MongoDb collection will have to be plural lower case like a table (called userresults). Second arg is the schema object that we want to base this model on
 
 module.exports = UserResult;
