@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-// const matches = require('./routes/matches');
+const userResults = require('./routes/userResults');
 const morgan = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');  // ODM system for MongoDB (creates models for collections and etc)
@@ -15,24 +15,19 @@ app.use(morgan('dev'));
 app.use(cors());
 // app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
+//routes
+app.use('/api/userresults', userResults);
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+// })
 app.get('/', (req, res) => {
     res.send("index page")
-})
-
-app.post('/', (req, res) => {
-    console.log(req.body);
 })
 
 //Turn server on using port
 app.listen(port, () => {
     console.log(`App listening on ${port}`);
 })
-
-// //routes
-// app.use('/matches', matches);
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-// })
 
 // //DB setup
 // mongoose.connect(dbURL)

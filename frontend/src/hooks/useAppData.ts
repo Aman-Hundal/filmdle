@@ -46,7 +46,7 @@ const useAppData = function () {
         win: true,
         guessesArray: copyArr,
         guessCount: gameState.guessCount + 1,
-        endDate: gameState.timeStamp,
+        endDate: gameState.timestamp,
       }
       saveResult(gameData, movieState);
     } else if ((gameState.guessCount + 1) === 3) {
@@ -58,7 +58,7 @@ const useAppData = function () {
         win: false,
         guessesArray: copyArr,
         guessCount: gameState.guessCount + 1,
-        endDate: gameState.timeStamp,
+        endDate: gameState.timestamp,
       }
       saveResult(gameData, movieState);
     }
@@ -158,7 +158,7 @@ const useAppData = function () {
     };
 
     try {
-      const response = await axios.post("http://localhost:3001/", data);
+      const response = await axios.post("http://localhost:3001/api/userresults", data);
       console.log(response);
     }
     catch (error) {
