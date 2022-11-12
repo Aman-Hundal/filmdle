@@ -18,6 +18,7 @@ const useAppData = function () {
       }
   );
   const [movieState, setMovieState]: any = useState({});
+  const [ip, setIp] = useState("");
   const [loading, setLoading]: any = useState(true);
 
   //Constants
@@ -41,7 +42,7 @@ const useAppData = function () {
       copyArr[field] = guessArray;
       setGameState((prev: any) => ({ ...prev, isCorrect: true, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
       const gameData: any = {
-        user: "ipAddy",
+        user: ip,
         win: true,
         guessesArray: copyArr,
         guessCount: gameState.guessCount + 1,
@@ -53,7 +54,7 @@ const useAppData = function () {
       copyArr[field] = guessArray;
       setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
       const gameData: any = {
-        user: "ipAddy",
+        user: ip,
         win: false,
         guessesArray: copyArr,
         guessCount: gameState.guessCount + 1,
@@ -165,6 +166,11 @@ const useAppData = function () {
     }
   }
 
+  const getIpAddress = async () => {
+    const response = await axios.get('https://geolocation-db.com/json/');
+    setIp(response.data.IPv4);
+  }
+
   useEffect(() => {
     const currentDate = new Date();
     // console.log(currentDate >= gameState.timestamp)
@@ -176,6 +182,7 @@ const useAppData = function () {
       .then((res) => {
         const movie: any = res.data;
         setMovieState((prev: any) => (prev = movie));
+        getIpAddress();
         setLoading(false);
       })
       .catch((error) => {
