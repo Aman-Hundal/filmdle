@@ -19,6 +19,7 @@ const GuessTabs = (props: any) => {
                 onChange={handleChange}
                 textColor="primary"
                 indicatorColor="primary"
+                variant="fullWidth"
             >
                 <Tab disabled={isCorrect || gameOver} onClick={() => setGuess("ONE")} value="ONE" label="First Guess" />
                 <Tab disabled={isCorrect || gameOver} onClick={() => setGuess("TWO")} value="TWO" label="Second Guess" />
