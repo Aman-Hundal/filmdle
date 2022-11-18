@@ -247,3 +247,265 @@
     transition-property: left, top, opacity;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .user-input {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .input-boxes {
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    border: solid 1px;
+    outline: none;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-correct {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    animation: jump 1s ease;
+    animation-fill-mode: forwards;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-correct-no-anim {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-includes {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    animation: shakeYellow 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-includes-no-anim {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    background-color: gray;
+    color: white;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-incorrect {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    border-color: lightgrey;
+    background-color: white;
+    color: black;
+    animation: shakeRed 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-incorrect-no-anim {
+    border: solid 1px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 850px) {
+  .user-input {
+    width: 100%;
+    margin-top: 7px;
+  }
+
+  .input-boxes {
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    border: solid 1px;
+    outline: none;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-correct {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    animation: jump 1s ease;
+    animation-fill-mode: forwards;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-correct-no-anim {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    color: white;
+    background-color: black;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-includes {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    color: black;
+    border-color: lightgrey;
+    background-color: white;
+    animation: shakeYellow 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-includes-no-anim {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    background-color: gray;
+    color: white;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-incorrect {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    border-color: lightgrey;
+    background-color: white;
+    color: black;
+    animation: shakeRed 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+
+  .input-boxes-incorrect-no-anim {
+    border: solid 1px;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    resize: none;
+    text-align: center;
+    font-size: x-large;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+    border-color: lightgrey;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+  }
+}

@@ -130,7 +130,7 @@ const useAppData = function () {
     const words = answer.toLowerCase().split(" ");
     let newStr: any = words.shift()
     let charCount = newStr.length;
-    const breakCount = Math.round((answer.length) / 3);
+    const breakCount = Math.round((answer.length) / 2);
 
     words.forEach(function (word, i) {
       charCount += word.length + 1;

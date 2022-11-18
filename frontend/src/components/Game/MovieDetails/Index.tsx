@@ -12,7 +12,7 @@ const MovieDetails = (props: any) => {
       alignItems="center"
       sx={{ padding: "1% 0% 1% 0%", width: "100%" }}
     >
-      <MoviePoster movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} />
+      <MoviePoster movieData={movieData} gameOver={gameOver} isCorrect={isCorrect} answer={movieData.title} />
     </Stack >
   );
 }
