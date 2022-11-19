@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
+const PORT = 8080;
 
 const useAppData = function () {
   interface Movie {
@@ -158,7 +159,7 @@ const useAppData = function () {
     };
 
     try {
-      const response = await axios.post("http://localhost:3001/api/userresults", data);
+      const response = await axios.post(`http://localhost:${PORT}/api/userresults`, data);
       console.log(response);
     }
     catch (error) {

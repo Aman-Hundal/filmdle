@@ -1,13 +1,15 @@
-require('dotenv').config({ path: "./.env" });
 const express = require('express');
 const app = express();
 const userResults = require('./routes/userResults');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const PORT = process.env.PORT || 3001;
 const cors = require('cors');
 const connectDb = require('./db/dbConfig');
 const path = require('path');
+if (process.env.ENVIRONMENT !== "prod") {
+    require('dotenv').config({ path: "./.env" });
+}
+const PORT = process.env.PORT || 3001;
 
 //Connect to DB
 connectDb();
@@ -21,9 +23,6 @@ app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
 //Routes
 app.use('/api/userresults', userResults);
-app.get('/', (req, res) => {
-    res.send("index page");
-})
 //Serves index.html react app file for all other routes
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
