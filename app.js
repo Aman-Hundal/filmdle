@@ -1,4 +1,4 @@
-require('dotenv').config({ path: "../.env" });
+require('dotenv').config({ path: "./.env" });
 const express = require('express');
 const app = express();
 const userResults = require('./routes/userResults');
@@ -16,16 +16,18 @@ connectDb();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
-//app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+//Serves index.html react app file
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
 //Routes
 app.use('/api/userresults', userResults);
 app.get('/', (req, res) => {
     res.send("index page");
 })
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-// })
+//Serves index.html react app file for all other routes
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+})
 
 //Turn server on if db connected successfully
 mongoose.connection.once('open', () => {
