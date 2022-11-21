@@ -30,6 +30,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://filmdle.ca",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E3DFZ6C3T5IAGK --paths '/*' && rm -rf build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
