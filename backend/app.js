@@ -21,8 +21,10 @@ app.use(cors());
 // app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
 //Routes
-app.use('/api/userresults', userResults);
-
+app.use('/userresults', userResults);
+app.get('/', (req, res) => {
+    res.send("Welcome to Filmdle API")
+});
 //Serves index.html react app file for all other routes
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
@@ -32,6 +34,6 @@ app.use('/api/userresults', userResults);
 mongoose.connection.once('open', () => {
     console.log("Connected to DB successfully");
     app.listen(PORT, () => {
-        console.log(`App server started.`);
+        console.log(`Filmdle API server started.`);
     })
 })
