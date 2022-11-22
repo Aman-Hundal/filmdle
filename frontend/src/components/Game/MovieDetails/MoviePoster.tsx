@@ -6,7 +6,7 @@ const MoviePoster = (props: any) => {
 
     //Constants
     let flipContainer: string = classNames('non-flip', { "flip-container": isCorrect || gameOver });
-    let fadeOut: string = classNames('bottom', { "bottom-fade": isCorrect || gameOver });
+    // let fadeOut: string = classNames('bottom', { "bottom-fade": isCorrect || gameOver });
     const movieImage: string = movieData.image;
 
     return (

@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "deploy": "eb init --profile default && eb deploy"
   },
   "dependencies": {
     "cors": "^2.8.5",

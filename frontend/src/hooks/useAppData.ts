@@ -24,7 +24,7 @@ const useAppData = function () {
   //Constants
   //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
   const movieID: string = 'tt1877830';
-  const movieURL: string = `https://imdb-api.com/en/API/Title/k_m0tl1spq/${movieID}`;
+  const movieURL: string = `${process.env.REACT_APP_IMDBAPI}${movieID}`;
 
   //Functions
   const submitAnswer = (guessObj: any, answer: string, field: number) => {
@@ -159,7 +159,7 @@ const useAppData = function () {
 
     try {
       const response = await axios.post(`https://filmdle-api.filmdle.ca/userresults`, data);
-      console.log(response);
+      // console.log(response);
     }
     catch (error) {
       console.error(error);

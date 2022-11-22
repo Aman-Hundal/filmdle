@@ -1,7 +1,6 @@
 import { Stack } from "@mui/material";
 import "../../../styles/MovieDetails.css";
 import MoviePoster from "./MoviePoster";
-import { grey } from "@mui/material/colors";
 
 const MovieDetails = (props: any) => {
   const { movieData, gameOver, isCorrect } = props;
