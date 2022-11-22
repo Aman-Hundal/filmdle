@@ -13,6 +13,6 @@ App uses various CSS animations, and was developed using a MERN stack + TypeScri
 You can find the app here: filmdle.ca.
 
 ### Screenshots
-!["Start"]()
-!["Guess"]()
-!["End"]()
+!["Start"](https://github.com/Aman-Hundal/filmdle/blob/main/docs/start.png?raw=true)
+!["Guess"](https://github.com/Aman-Hundal/filmdle/blob/main/docs/play.png?raw=true)
+!["End"](https://github.com/Aman-Hundal/filmdle/blob/main/docs/end.png?raw=true)
