@@ -1,0 +1,13 @@
+/frontend
+/node_modules
+/notes.md
+.elasticbeanstalk/
+.DS_Store
+.env
+.env copy
+.gitignore
+/docs
+.git
+.gitignore
+.vscode
+/README.md

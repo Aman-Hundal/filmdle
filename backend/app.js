@@ -1,3 +1,4 @@
+require('dotenv').config({ path: "../.env" });
 const express = require('express');
 const app = express();
 const userResults = require('./routes/userResults');
@@ -6,9 +7,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const connectDb = require('./db/dbConfig');
 const path = require('path');
-if (process.env.ENVIRONMENT !== "prod") {
-    require('dotenv').config({ path: "../.env" });
-}
 const PORT = process.env.PORT || 3001;
 
 //Connect to DB
@@ -34,6 +32,6 @@ app.use('/api/userresults', userResults);
 mongoose.connection.once('open', () => {
     console.log("Connected to DB successfully");
     app.listen(PORT, () => {
-        console.log(`App listening on ${PORT}`);
+        console.log(`App server started.`);
     })
 })
