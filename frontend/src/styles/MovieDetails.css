@@ -31,7 +31,7 @@
 .front,
 .back {
   aspect-ratio: 16 / 9;
-  width: clamp(350px, 975px, 60vw);
+  width: clamp(350px, 950px, 57vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -71,7 +71,7 @@
   background-color: white;
   aspect-ratio: 16 / 9;
   /* height: 55vh; */
-  width: clamp(350px, 975px, 60vw);
+  width: clamp(350px, 950px, 57vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -90,7 +90,7 @@
 .non-flip {
   /* height: 55vh; */
   aspect-ratio: 16 / 9;
-  width: clamp(350px, 975px, 60vw);
+  width: clamp(350px, 950px, 57vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -115,7 +115,7 @@
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   background-color: white;
   aspect-ratio: 16 / 9;
-  width: clamp(350px, 975px, 60vw);
+  width: clamp(350px, 950px, 57vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -125,7 +125,7 @@
 .fade-container {
   position: relative;
   aspect-ratio: 16 / 9;
-  width: clamp(350px, 975px, 60vw);
+  width: clamp(350px, 950px, 57vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -198,7 +198,7 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background-color: white;
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -208,7 +208,7 @@
   .fade-container {
     position: relative;
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -272,7 +272,7 @@
 
   .poster {
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     object-fit: fill;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     /* border: 1px solid;
@@ -292,7 +292,7 @@
   .front,
   .back {
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -331,7 +331,7 @@
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     background-color: white;
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -349,7 +349,7 @@
 
   .non-flip {
     height: clamp(350px, 40vw, 40vw);
-    width: clamp(350px, 975px, 60vw);
+    width: clamp(350px, 950px, 57vw);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
