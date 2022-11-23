@@ -1,7 +1,7 @@
 import SubmittedGuess from "./SubmittedGuess";
 const DisabledGuess = (props: any) => {
     const { formattedAnswerArray, previousGuess } = props;
-    
+
     return (
         <>
             {previousGuess ?
@@ -12,7 +12,7 @@ const DisabledGuess = (props: any) => {
                     if (char !== "|") {
                         return <input
                             className="input-boxes"
-                            style={{ backgroundColor: "lightgrey", borderColor: "white" }}
+                            style={{ backgroundColor: "lightgrey", borderColor: "white", marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                             type="text"
                             key={index}
                             disabled

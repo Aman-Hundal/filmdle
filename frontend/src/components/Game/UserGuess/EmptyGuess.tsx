@@ -1,6 +1,6 @@
 const EmptyGuess = (props: any) => {
     const { formattedAnswerArray, guess, setGuess, focusField } = props;
-    
+
     return (
         <>
             {formattedAnswerArray.map((char: string, index: number) => {
@@ -15,6 +15,7 @@ const EmptyGuess = (props: any) => {
                                 const newKey = guess[index] = event.target.value;
                                 setGuess((prev: any) => ({ ...prev, newKey }));
                             }}
+                            style={{ marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                             onKeyDown={(event: any) => {
                                 // const newKey = guess[index] = event.target.value;
                                 // setGuess((prev: any) => ({...prev, newKey}));
@@ -27,6 +28,7 @@ const EmptyGuess = (props: any) => {
                         className="input-boxes"
                         type="text"
                         key={index}
+                        style={{ marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         onChange={(event: any) => {
                             const newKey = guess[index] = event.target.value;
                             setGuess((prev: any) => ({ ...prev, newKey }));

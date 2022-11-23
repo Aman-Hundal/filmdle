@@ -9,6 +9,7 @@ const SubmittedGuess = (props: any) => {
                 if (char === previousGuess[index]) {
                     return <input
                         className="input-boxes-correct-no-anim"
+                        style={{ marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         type="text"
                         key={index}
                         disabled
@@ -18,6 +19,7 @@ const SubmittedGuess = (props: any) => {
                 } else if (formattedAnswerArray.includes(previousGuess[index])) {
                     return <input
                         className="input-boxes-includes-no-anim"
+                        style={{ marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         type="text"
                         key={index}
                         disabled
@@ -27,6 +29,7 @@ const SubmittedGuess = (props: any) => {
                 } else {
                     return <input
                         className="input-boxes-incorrect-no-anim"
+                        style={{ marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         type="text"
                         key={index}
                         disabled

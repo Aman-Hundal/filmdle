@@ -16,7 +16,7 @@ const AnimatedGuess = (props: any) => {
                     timer++;
                     return <input
                         className="input-boxes-correct"
-                        style={{ animationDelay: `${timer * 0.3}s` }}
+                        style={{ animationDelay: `${timer * 0.3}s`, marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         type="text"
                         key={index}
                         disabled
@@ -30,7 +30,7 @@ const AnimatedGuess = (props: any) => {
                         className="input-boxes-includes"
                         type="text"
                         key={index}
-                        style={{ animationDelay: `${timer * 0.3}s` }}
+                        style={{ animationDelay: `${timer * 0.3}s`, marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         disabled
                         value={guessArray[index]}
                         maxLength={1}>
@@ -41,7 +41,7 @@ const AnimatedGuess = (props: any) => {
                     return <input
                         className="input-boxes-incorrect"
                         type="text"
-                        style={{ animationDelay: `${timer * 0.3}s` }}
+                        style={{ animationDelay: `${timer * 0.3}s`, marginRight: index === formattedAnswerArray.length - 1 ? "4px" : "0px" }}
                         key={index}
                         disabled
                         value={guessArray[index]}
