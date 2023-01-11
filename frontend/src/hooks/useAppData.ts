@@ -6,6 +6,11 @@ const useAppData = function () {
     [apiData: string]: string | string[];
   };
 
+  // Set expiry date of localstorage/user info to be the upcoming Sunday.
+  const expiry = new Date();
+  expiry.setDate(expiry.getDate() + ((6 - expiry.getDay()) % 7 + 1) % 7);
+  // localStorage.clear();
+
   //Global State
   const [gameState, setGameState]: any = useState(
     localStorage.getItem("gameData") ? JSON.parse(localStorage.getItem("gameData") || "{}") :
@@ -14,16 +19,26 @@ const useAppData = function () {
         guessCount: 0,
         gameOver: false,
         guessesArray: [], // [{id: 1, guessArray: [], guessCompleted: bool }]. Currently an [ [], [], [] ]
-        timestamp: new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate() + 7),
+        timestamp: expiry,
       }
   );
   const [movieState, setMovieState]: any = useState({});
   const [ip, setIp] = useState("");
   const [loading, setLoading]: any = useState(true);
 
+  //Clear local storage if date > expiry date
+  const currentDate = new Date();
+  const expiryDate = new Date(gameState.timestamp);
+  // console.log(currentDate < expiryDate);
+  // console.log(currentDate);
+  // console.log(expiryDate);
+  if (currentDate > expiryDate) {
+    localStorage.clear();
+  }
+
   //Constants
-  //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684
-  const movieID: string = 'tt1877830';
+  //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684 //tt0245429
+  const movieID: string = 'tt0245429';
   const movieURL: string = `${process.env.REACT_APP_IMDBAPI}${movieID}`;
 
   //Functions
@@ -172,12 +187,6 @@ const useAppData = function () {
   }
 
   useEffect(() => {
-    const currentDate = new Date();
-    // console.log(currentDate >= gameState.timestamp)
-    if (currentDate >= gameState.timestamp) {
-      localStorage.clear();
-    }
-
     axios.get(movieURL)
       .then((res) => {
         const movie: any = res.data;
