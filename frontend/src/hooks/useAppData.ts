@@ -9,7 +9,6 @@ const useAppData = function () {
   // Set expiry date of localstorage/user info to be the upcoming Sunday.
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + ((6 - expiry.getDay()) % 7 + 1) % 7);
-  // localStorage.clear();
 
   //Global State
   const [gameState, setGameState]: any = useState(
