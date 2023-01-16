@@ -26,14 +26,14 @@ const useAppData = function () {
   const [loading, setLoading]: any = useState(true);
 
   //Clear local storage if date > expiry date
-  const currentDate = new Date();
-  const expiryDate = new Date(gameState.timestamp);
+  // const currentDate = new Date();
+  // const expiryDate = new Date(gameState.timestamp);
   // console.log(currentDate < expiryDate);
   // console.log(currentDate);
   // console.log(expiryDate);
-  if (currentDate > expiryDate) {
-    localStorage.clear();
-  }
+  // if (currentDate > expiryDate) {
+  //   localStorage.clear();
+  // }
 
   //Constants
   //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684 //tt0245429
@@ -186,6 +186,12 @@ const useAppData = function () {
   }
 
   useEffect(() => {
+    //Clear local storage if date > expiry date
+    const currentDate = new Date();
+    const expiryDate = new Date(gameState.timestamp);
+    if (currentDate > expiryDate) {
+      localStorage.clear();
+    }
     axios.get(movieURL)
       .then((res) => {
         const movie: any = res.data;

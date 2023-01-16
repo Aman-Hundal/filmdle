@@ -30,7 +30,8 @@
 .flip-container,
 .front,
 .back {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 15 / 9;
+  /* aspect-ratio: 16 / 9; */
   width: clamp(350px, 950px, 55vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -69,7 +70,8 @@
   border-color: lightgrey; */
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   background-color: white;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 15 / 9;
+    /* aspect-ratio: 16 / 9; */
   /* height: 55vh; */
   width: clamp(350px, 950px, 55vw);
   border-top-left-radius: 20px;
@@ -89,7 +91,8 @@
 
 .non-flip {
   /* height: 55vh; */
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 15 / 9;
+    /* aspect-ratio: 16 / 9; */
   width: clamp(350px, 950px, 55vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -114,7 +117,8 @@
   opacity: 0;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   background-color: white;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 15 / 9;
+    /* aspect-ratio: 16 / 9; */
   width: clamp(350px, 950px, 55vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -124,7 +128,8 @@
 
 .fade-container {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 15 / 9;
+    /* aspect-ratio: 16 / 9; */
   width: clamp(350px, 950px, 55vw);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

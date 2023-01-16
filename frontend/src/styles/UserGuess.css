@@ -190,6 +190,30 @@
   }
 }
 
+@keyframes correctGreen {
+  from {
+    background-color: white;
+    color: black;
+  }
+
+  to {
+    background-color: black;
+    color: white;
+  }
+}
+
+@keyframes fadeYellow {
+  from {
+    background-color: white;
+    color: black;
+  }
+
+  to {
+    background-color: gray;
+    color: white;
+  }
+}
+
 @keyframes jump {
   from {
     background-color: white;
@@ -285,7 +309,7 @@
     color: black;
     border-color: lightgrey;
     background-color: white;
-    animation: jump 1s ease;
+    animation: correctGreen 2s ease;
     animation-fill-mode: forwards;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -321,7 +345,8 @@
     color: black;
     border-color: lightgrey;
     background-color: white;
-    animation: shakeYellow 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: fadeYellow 2s ease;
+    animation-fill-mode: forwards;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
   }
@@ -356,7 +381,8 @@
     border-color: lightgrey;
     background-color: white;
     color: black;
-    animation: shakeRed 0.82s cubic-bezier(.36, .07, .19, .97) both;
+    animation: none;
+    animation-fill-mode: forwards;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
   }
