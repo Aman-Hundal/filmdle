@@ -33,7 +33,7 @@ const useAppData = function () {
   // console.log(expiryDate);
   if (currentDate > expiryDate) {
     localStorage.clear();
-    window.location.reload();
+    // window.location.reload();
   }
 
   //Constants
