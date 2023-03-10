@@ -1,5 +1,7 @@
 import {useState} from 'react';
 
+// FILE AND CODE NOT USED IN APP
+
 //Hook which keeps track of the history of the modes, so we can go backwards or forwards. We store this history as a stateful array called history in our Hook. We'll interact with history through the transition and back actions.
 const useVisualMode = function(initial: string) {
   const [history, setHistory]: any = useState([initial]);

@@ -4,6 +4,7 @@ const UserResult = require('../db/models/UserResult');
 
 //GET ROUTE
 router.get('/', async (req, res) => {
+    // Find and return all user results
     const allUserResults = await UserResult.find();
     res.send(allUserResults);
 });
@@ -12,6 +13,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     const data = req.body;
     try {
+        //Create new UserResult
         const newUserResult = new UserResult({
             user: data.user,
             win: data.win,
@@ -21,6 +23,7 @@ router.post('/', async (req, res) => {
             movieName: data.movieName,
             gameEndDate: data.endDate
         })
+        //Save UserResult
         const result = await newUserResult.save();
         res.status(201).json({ 'success': 'User result created and stored!' });
     } catch (error) {

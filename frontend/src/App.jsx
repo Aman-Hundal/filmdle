@@ -15,15 +15,14 @@ function App() {
     formatAnswerArr,
     saveResult,
   } = useAppData();
-
-  // console.log(gameState);
+  const cleanMovieTitle = !loading ? movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") : "";
 
   return (
     <>
       {!loading ?
         <div className="App">
           <NavBar />
-          {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The film was <strong>{movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
+          {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The film was <strong>{cleanMovieTitle}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
           <GameIndex
             focusField={focusField}
             objToArrConversion={objToArrConversion}

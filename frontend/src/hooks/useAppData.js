@@ -2,28 +2,24 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 const useAppData = function () {
-  interface Movie {
-    [apiData: string]: string | string[];
-  };
-
-  // Set expiry date of localstorage/user info to be the upcoming Sunday.
+  //Set expiry date of data in localstorage to the upcoming Sunday.
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + ((6 - expiry.getDay()) % 7 + 1) % 7);
 
   //Global State
-  const [gameState, setGameState]: any = useState(
+  const [gameState, setGameState] = useState(
     localStorage.getItem("gameData") ? JSON.parse(localStorage.getItem("gameData") || "{}") :
       {
         isCorrect: false,
         guessCount: 0,
         gameOver: false,
-        guessesArray: [], // [{id: 1, guessArray: [], guessCompleted: bool }]. Currently an [ [], [], [] ]
+        guessesArray: [],
         timestamp: expiry,
       }
   );
-  const [movieState, setMovieState]: any = useState({});
+  const [movieState, setMovieState] = useState({});
   const [ip, setIp] = useState("");
-  const [loading, setLoading]: any = useState(true);
+  const [loading, setLoading] = useState(true);
 
   //Clear local storage if date > expiry date
   const currentDate = new Date();
@@ -37,26 +33,25 @@ const useAppData = function () {
   }
 
   //Constants
-  //tt1877830 // tt0120737 //tt0086190 //  // tt1877830 tt0080684 //tt0245429
-  const movieID: string = 'tt0245429';
-  const movieURL: string = `${process.env.REACT_APP_IMDBAPI}${movieID}`;
+  const movieID = 'tt0245429';
+  const movieURL = `${process.env.REACT_APP_IMDBAPI}${movieID}`;
 
   //Functions
-  const submitAnswer = (guessObj: any, answer: string, field: number) => {
-    const guessArray: string[] = objToArrConversion(guessObj, answer);
-    const formattedArray: string[] = formatAnswerArr(answer);
-    const answerArray: string[] = formattedArray.map((elm: string, index: number) => {
+  //Submit Answer
+  const submitAnswer = (guessObj, answer, field) => {
+    const guessArray = objToArrConversion(guessObj, answer);
+    const formattedArray = formatAnswerArr(answer);
+    const answerArray = formattedArray.map((elm, index) => {
       if (elm === "|") {
         return elm = "";
       }
       return elm;
     })
-
     if (answerCheck(guessArray, answerArray)) {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
-      setGameState((prev: any) => ({ ...prev, isCorrect: true, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
-      const gameData: any = {
+      setGameState((prev) => ({ ...prev, isCorrect: true, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
+      const gameData = {
         user: ip,
         win: true,
         guessesArray: copyArr,
@@ -67,8 +62,8 @@ const useAppData = function () {
     } else if ((gameState.guessCount + 1) === 3) {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
-      setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
-      const gameData: any = {
+      setGameState((prev) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
+      const gameData = {
         user: ip,
         win: false,
         guessesArray: copyArr,
@@ -80,15 +75,14 @@ const useAppData = function () {
     else {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
-      setGameState((prev: any) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
+      setGameState((prev) => ({ ...prev, guessCount: gameState.guessCount + 1, guessesArray: copyArr }));
     }
   };
-
-  const answerCheck = (guessArray: string[], answerArray: string[]): boolean => {
+  //Function to confirm if the user's guess matches the movie title (answer)
+  const answerCheck = (guessArray, answerArray) => {
     if (answerArray.length !== guessArray.length) {
       return false;
     }
-
     for (let i = 0; i < answerArray.length; i++) {
       if (answerArray[i] !== guessArray[i]) {
         return false;
@@ -96,16 +90,16 @@ const useAppData = function () {
     }
     return true;
   };
-
-  const gameOverCheck = (guessCount: number): boolean => {
+  //Function to check if game is over (when user has used all of their guesses)
+  const gameOverCheck = (guessCount) => {
     if (guessCount === 3) {
-      setGameState((prev: any) => ({ ...prev, gameOver: true }));
+      setGameState((prev) => ({ ...prev, gameOver: true }));
       return true;
     }
     return false;
   };
-
-  const focusField = (event: any) => {
+  //Function used to control the User Guess input boxs UI (ie. to automatically go to the next input box on each keystroke/input from user and to not move to inputs box if delete or backspace keys used)
+  const focusField = (event) => {
     const form = event.target.form;
     const index = [...form].indexOf(event.target);
     const disallowedKeys = ["delete", "backspace"];
@@ -116,10 +110,10 @@ const useAppData = function () {
       form.elements[index + 1].focus();
     }
   };
-
-  const objToArrConversion = (obj: any, answer: string): string[] => {
-    const answerLen: number = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
-    const resultArr: string[] = new Array(answerLen).fill("");
+  //Function to convert an answer object to an answer array in format required for user guess input logic and UI/UX
+  const objToArrConversion = (obj, answer) => {
+    const answerLen = answer.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").toLowerCase().length;
+    const resultArr = new Array(answerLen).fill("");
     for (let key in obj) {
       if (key !== "newKey") {
         resultArr[parseInt(key)] = obj[key].toLowerCase();
@@ -127,27 +121,25 @@ const useAppData = function () {
     }
     return resultArr;
   };
-
-  const arrToObjConversion = (arr: string[]) => {
-    const resultObj: any = {};
-
-    arr.forEach((char: string, index: number) => {
+  //Function to convert an answer array to answer object in format required for user guess input logic and UI/UX
+  const arrToObjConversion = (arr) => {
+    const resultObj = {};
+    arr.forEach((char, index) => {
       if (char !== " ") {
         resultObj[index] = char;
       }
     })
-
     return resultObj;
   };
-
-  const formatAnswerArr = (answer: string): string[] => {
-    const lineBreak = '|'
+  //Function used to create a formatted answer array that will be used in the user guess input UI/UX
+  //This formatted answer array allows for flexibility for the programmer in breaking up the movie title words in the user guess input UI/UX
+  const formatAnswerArr = (answer) => {
+    const lineBreak = '|';
     const words = answer.toLowerCase().split(" ");
-    let newStr: any = words.shift()
+    let newStr = words.shift()
     let charCount = newStr.length;
     const breakCount = Math.round((answer.length) / 2);
-
-    words.forEach(function (word, i) {
+    words.forEach(function (word) {
       charCount += word.length + 1;
       if (charCount <= breakCount) {
         newStr += ' ';
@@ -157,11 +149,10 @@ const useAppData = function () {
       }
       newStr += word;
     });
-
     return newStr.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").replace(/\s+/g, "").split("");
   };
-
-  const saveResult = async (gameData: any, movieData: any) => {
+  //Function to send axios request to back end API to save user result data
+  const saveResult = async (gameData, movieData) => {
     const data = {
       user: gameData.user,
       win: gameData.win,
@@ -171,32 +162,30 @@ const useAppData = function () {
       movieName: movieData.title,
       endDate: gameData.endDate,
     };
-
     try {
       const response = await axios.post(`https://filmdle-api.filmdle.ca/userresults`, data);
-      // console.log(response);
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
+  //Function to make request to a third party API to get the users IP Address
+  const getIpAddress = async () => {
+    try {
+      const response = await axios.get('https://geolocation-db.com/json/');
+      setIp(response.data.IPv4);
     }
     catch (error) {
       console.error(error);
     }
   }
 
-  const getIpAddress = async () => {
-    const response = await axios.get('https://geolocation-db.com/json/');
-    setIp(response.data.IPv4);
-  }
-
+  //useEffect to load app data (API calls to IMDB API, IP Address API, back end API etc.)
   useEffect(() => {
-    //Clear local storage if date > expiry date
-    // const currentDate = new Date();
-    // const expiryDate = new Date(gameState.timestamp);
-    // if (currentDate > expiryDate) {
-    //   localStorage.clear();
-    // }
     axios.get(movieURL)
       .then((res) => {
-        const movie: any = res.data;
-        setMovieState((prev: any) => (prev = movie));
+        const movie = res.data;
+        setMovieState((prev) => (prev = movie));
         getIpAddress();
         setLoading(false);
       })
@@ -204,7 +193,7 @@ const useAppData = function () {
         console.error(error);
       })
   }, []);
-
+  //useEffect to set local storage when any changes to gameState occurs
   useEffect(() => {
     localStorage.setItem("gameData", JSON.stringify(gameState));
   }, [gameState]);

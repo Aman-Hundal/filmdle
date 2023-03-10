@@ -17,20 +17,13 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-//Serves index.html react app file
-// app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-
 //Routes
 app.use('/userresults', userResults);
 app.get('/', (req, res) => {
     res.send("Welcome to Filmdle API")
 });
-//Serves index.html react app file for all other routes
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
-// })
 
-//Turn server on if db connected successfully
+//Start up server if DB connected successfully
 mongoose.connection.once('open', () => {
     console.log("Connected to DB successfully");
     app.listen(PORT, () => {
