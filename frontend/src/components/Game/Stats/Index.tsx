@@ -1,6 +1,11 @@
-const Stats = () : any => {
+import StatsListItem from "./StatsListItem";
+
+const Stats = (): any => {
     return (
-        <h1>Stats</h1>
+        <>
+            <h1>Stats</h1>
+            <StatsListItem />
+        </>
     );
 }
 
