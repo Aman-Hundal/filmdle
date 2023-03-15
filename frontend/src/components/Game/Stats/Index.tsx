@@ -1,10 +1,15 @@
-import StatsListItem from "./StatsListItem";
+import { useState } from "react";
+import StatsMain from "./StatsMain";
+
 
 const Stats = (): any => {
+    const [loading, setLoading]: any = useState(false);
+
     return (
         <>
-            <h1>Stats</h1>
-            <StatsListItem />
+            {!loading ?
+                <StatsMain />
+                : null}
         </>
     );
 }
