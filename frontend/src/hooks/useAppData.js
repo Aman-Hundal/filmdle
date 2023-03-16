@@ -174,7 +174,7 @@ const useAppData = function () {
   const getIpAddress = async () => {
     try {
       const response = await axios.get('https://geolocation-db.com/json/');
-      setIp(response.data.IPv4);
+      return response.data.IPv4;
     }
     catch (error) {
       console.error(error);
@@ -183,16 +183,27 @@ const useAppData = function () {
 
   //useEffect to load app data (API calls to IMDB API, IP Address API, back end API etc.)
   useEffect(() => {
-    axios.get(movieURL)
-      .then((res) => {
+    const getData = async () => {
+      try {
+        const res = await axios.get(movieURL);
         const movie = res.data;
         setMovieState((prev) => (prev = movie));
-        getIpAddress();
+        const ip = await getIpAddress()
+        setIp(ip);
+
+        const data = {
+          user: ip,
+          currentExpiry: gameState.timestamp
+        };
+        const apiRes =  await axios.get("http://localhost:8080/userresults",  { params: data });
+        console.log(apiRes)
         setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+      }
+      catch (err) {
+        console.error(err);
+      }
+    }
+    getData();
   }, []);
   //useEffect to set local storage when any changes to gameState occurs
   useEffect(() => {
