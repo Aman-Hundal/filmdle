@@ -33,7 +33,7 @@ function App() {
             saveResult={saveResult}
             movieData={movieState}
             gameData={gameState} />
-            <Stats />
+            {/* <Stats /> */}
         </div> : null}
     </>
   );

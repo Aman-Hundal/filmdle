@@ -13,7 +13,7 @@ const NavBar = (prop: any) => {
             justifyContent="center"
             sx={{
                 width: "100%",
-                padding: "0.5%",
+                // padding: "0.5%",
                 backgroundColor: grey[900],
                 // borderBottom: "10px solid #ffffff"
             }}
