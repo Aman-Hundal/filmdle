@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 const useAppData = function () {
-  //Set expiry date of data in localstorage to the upcoming Sunday.
+  //Set expiry date of data in localstorage to Monday (Midnight)
   const expiry = new Date();
   expiry.setDate(expiry.getDate() + ((6 - expiry.getDay()) % 7 + 1) % 7);
+  expiry.setHours(24, 0, 0, 0);
 
   //Global State
   const [gameState, setGameState] = useState(
@@ -17,6 +18,14 @@ const useAppData = function () {
         timestamp: expiry,
       }
   );
+  const [stats, setStats] = useState({
+    totalUserWins: 0,
+    totalUserGames: 0,
+    currentStreak: 0,
+    bestStreak: 0,
+    totalWeeklyWins: 0,
+    winGuess: [],
+  });
   const [movieState, setMovieState] = useState({});
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(true);
@@ -31,9 +40,11 @@ const useAppData = function () {
     localStorage.clear();
     // window.location.reload();
   }
-
   //Constants
   //tt1877830
+  //tt2527338
+  //tt0120737
+  //tt0245429
   const movieID = 'tt0245429';
   const movieURL = `${process.env.REACT_APP_IMDBAPI}${movieID}`;
 
@@ -195,8 +206,17 @@ const useAppData = function () {
           user: ip,
           currentExpiry: gameState.timestamp
         };
-        const apiRes =  await axios.get("http://localhost:8080/userresults",  { params: data });
-        console.log(apiRes)
+        const apiRes = await axios.get("http://localhost:8080/userresults", { params: data });
+        const statsData = apiRes.data;
+        setStats((prev) => ({
+          ...prev,
+          totalUserWins: statsData.totalUserWins,
+          totalUserGames: statsData.totalUserGames,
+          currentStreak: statsData.currentStreak,
+          bestStreak: statsData.bestStreak,
+          totalWeeklyWins: statsData.totalWeeklyWins,
+          winGuess: [...prev.winGuess, statsData.winGuess]
+        }))
         setLoading(false);
       }
       catch (err) {
@@ -212,6 +232,7 @@ const useAppData = function () {
 
   return {
     gameState,
+    stats,
     movieState,
     loading,
     submitAnswer,

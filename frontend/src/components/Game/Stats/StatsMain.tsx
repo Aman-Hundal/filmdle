@@ -7,8 +7,9 @@ import StatsListItem from "./StatsListItem";
 import { useState } from "react";
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 
-const StatsMain = (): any => {
+const StatsMain = (props: any) => {
     const [open, setOpen]: any = useState(false);
+    const { stats } = props;
 
     const handleOpen = () => {
         setOpen(true)
@@ -37,7 +38,7 @@ const StatsMain = (): any => {
                     </Stack>
                 </DialogTitle>
                 <DialogContent>
-                    <StatsListItem />
+                    <StatsListItem stats={stats} />
                 </DialogContent>
                 <DialogActions>
                     <Button variant="outlined" onClick={handleClose}>Close</Button>

@@ -7,6 +7,7 @@ import Stats from './components/Game/Stats/Index';
 function App() {
   const {
     gameState,
+    stats,
     movieState,
     loading,
     submitAnswer,
@@ -33,7 +34,7 @@ function App() {
             saveResult={saveResult}
             movieData={movieState}
             gameData={gameState} />
-            {/* <Stats /> */}
+          <Stats stats={stats} />
         </div> : null}
     </>
   );

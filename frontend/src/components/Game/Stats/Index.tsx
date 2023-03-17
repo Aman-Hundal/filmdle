@@ -1,15 +1,11 @@
-import { useState } from "react";
 import StatsMain from "./StatsMain";
 
-
-const Stats = (): any => {
-    const [loading, setLoading]: any = useState(false);
-
+const Stats = (props: any) => {
+    const { stats } = props;
+    
     return (
         <>
-            {!loading ?
-                <StatsMain />
-                : null}
+            <StatsMain stats={stats} />
         </>
     );
 }
