@@ -7,7 +7,7 @@ import EighteenUpRatingIcon from '@mui/icons-material/EighteenUpRating';
 
 const StatsListItem = (props: any) => {
     const { stats } = props;
-    
+
     return (
         <Grid
             container
