@@ -21,9 +21,9 @@ const GuessTabs = (props: any) => {
                 indicatorColor="primary"
                 variant="fullWidth"
             >
-                <Tab disabled={isCorrect || gameOver} onClick={() => setGuess("ONE")} value="ONE" label="First Guess" />
-                <Tab disabled={isCorrect || gameOver} onClick={() => setGuess("TWO")} value="TWO" label="Second Guess" />
-                <Tab disabled={isCorrect || gameOver} onClick={() => setGuess("THREE")} value="THREE" label="Third Guess" />
+                <Tab onClick={() => setGuess("ONE")} value="ONE" label="First Guess" />
+                <Tab onClick={() => setGuess("TWO")} value="TWO" label="Second Guess" />
+                <Tab onClick={() => setGuess("THREE")} value="THREE" label="Third Guess" />
             </Tabs>
         </Stack>
     );

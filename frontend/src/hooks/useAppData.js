@@ -215,7 +215,7 @@ const useAppData = function () {
           currentStreak: statsData.currentStreak,
           bestStreak: statsData.bestStreak,
           totalWeeklyWins: statsData.totalWeeklyWins,
-          winGuess: [...prev.winGuess, statsData.winGuess]
+          winGuess: statsData.winGuess,
         }))
         setLoading(false);
       }
