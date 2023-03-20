@@ -29,6 +29,14 @@ const useAppData = function () {
   const [movieState, setMovieState] = useState({});
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(true);
+  //Stats Toggle State Mgmt
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true)
+  };
+  const handleClose = () => {
+    setOpen(false)
+  };
 
   //Clear local storage if date > expiry date
   const currentDate = new Date();
@@ -71,6 +79,7 @@ const useAppData = function () {
         endDate: gameState.timestamp,
       }
       saveResult(gameData, movieState);
+      // setOpen(true);
     } else if ((gameState.guessCount + 1) === 3) {
       const copyArr = [...gameState.guessesArray];
       copyArr[field] = guessArray;
@@ -106,6 +115,7 @@ const useAppData = function () {
   const gameOverCheck = (guessCount) => {
     if (guessCount === 3) {
       setGameState((prev) => ({ ...prev, gameOver: true }));
+      // setOpen(true);
       return true;
     }
     return false;
@@ -242,6 +252,9 @@ const useAppData = function () {
     focusField,
     formatAnswerArr,
     saveResult,
+    open,
+    handleClose,
+    handleOpen,
   };
 };
 

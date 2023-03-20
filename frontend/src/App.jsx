@@ -16,6 +16,9 @@ function App() {
     focusField,
     formatAnswerArr,
     saveResult,
+    open,
+    handleClose,
+    handleOpen,
   } = useAppData();
   const cleanMovieTitle = !loading ? movieState.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") : "";
 
@@ -23,7 +26,7 @@ function App() {
     <>
       {!loading ?
         <div className="App">
-          <NavBar />
+          <NavBar handleOpen={handleOpen} />
           {gameState.gameOver || gameState.isCorrect ? <p className="goodbye">The film was <strong>{cleanMovieTitle}</strong>. Please join again next week.</p> : <p className="goodbye"></p>}
           <GameIndex
             focusField={focusField}
@@ -34,7 +37,7 @@ function App() {
             saveResult={saveResult}
             movieData={movieState}
             gameData={gameState} />
-          <Stats stats={stats} />
+          <Stats stats={stats} handleClose={handleClose} open={open} />
         </div> : null}
     </>
   );

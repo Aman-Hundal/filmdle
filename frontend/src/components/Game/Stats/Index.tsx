@@ -7,37 +7,28 @@ import DialogTitle from '@mui/material/DialogTitle';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import StatsLower from "./StatsLower";
 import StatsUpper from "./StatsUpper";
+import { grey } from "@mui/material/colors";
 
 const Stats = (props: any) => {
-    const [open, setOpen]: any = useState(false);
+    const { handleClose, open } = props;
     const { stats } = props;
-
-    const handleOpen = () => {
-        setOpen(true)
-    };
-    const handleClose = () => {
-        setOpen(false)
-    };
 
     return (
         <>
-            <Button variant="outlined" onClick={handleOpen}>
-                Stats
-            </Button>
             <Dialog
                 fullWidth
                 maxWidth="sm"
                 open={open}
                 onClose={handleClose}
             >
-                <DialogTitle sx={{ backgroundColor: "black", marginBottom: "30px" }}>
+                <DialogTitle sx={{ backgroundColor: grey[900], marginBottom: "30px" }}>
                     <Stack
                         direction="row"
                         alignItems="center"
                         justifyContent="center"
                     >
                         <h1 style={{ color: "white", marginBottom: 0, marginTop: 0 }}>Stats</h1>
-                        <ShowChartIcon sx={{ fontSize: "50px", color: "white", }} />
+                        <ShowChartIcon sx={{ fontSize: "50px", color: "white" }} />
                     </Stack>
                 </DialogTitle>
                 <DialogContent>

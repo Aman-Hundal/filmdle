@@ -1,20 +1,26 @@
 import {
     Grid,
     Stack,
+    IconButton
 } from '@mui/material';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import { grey } from '@mui/material/colors';
 
-const NavBar = (prop: any) => {
+const NavBar = (props: any) => {
+    const { handleOpen } = props;
 
     return (
         <Grid
             container
             alignItems="center"
-            justifyContent="center"
+            justifyContent="space-between"
             sx={{
                 width: "100%",
-                // padding: "0.5%",
                 backgroundColor: grey[900],
+                // padding: "0.5%",
                 // borderBottom: "10px solid #ffffff"
             }}
         >
@@ -24,7 +30,26 @@ const NavBar = (prop: any) => {
                     alignItems="center"
                     justifyContent="center"
                 >
+                    <MenuIcon sx={{ color: grey[900], fontSize: "35px", paddingLeft: "15px" }} />
+                </Stack>
+            </Grid>
+            <Grid item>
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                >
                     <h1 style={{ color: "#ffffff" }} className="title">filmdle</h1>
+                </Stack>
+            </Grid>
+            <Grid item>
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center"
+                >
+                    <HelpOutlineIcon sx={{ color: "white", fontSize: "35px", paddingRight: "5px" }} />
+                    <LeaderboardIcon sx={{ color: "white", fontSize: "35px", paddingRight: "10px", cursor: "pointer" }} onClick={handleOpen} />
                 </Stack>
             </Grid>
         </Grid>
