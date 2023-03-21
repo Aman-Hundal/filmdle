@@ -29,7 +29,7 @@ const useAppData = function () {
   const [movieState, setMovieState] = useState({});
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(true);
-  //Stats Toggle State Mgmt
+  //Stats Component State Mgmt
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true)
@@ -48,6 +48,7 @@ const useAppData = function () {
     localStorage.clear();
     // window.location.reload();
   }
+  
   //Constants
   //tt1877830
   //tt2527338
@@ -185,7 +186,7 @@ const useAppData = function () {
       endDate: gameData.endDate,
     };
     try {
-      const response = await axios.post(`https://filmdle-api.filmdle.ca/userresults`, data);
+      const response = await axios.post("https://filmdle-api.filmdle.ca/userresults", data);
     }
     catch (error) {
       console.error(error);
@@ -216,7 +217,7 @@ const useAppData = function () {
           user: ip,
           currentExpiry: gameState.timestamp
         };
-        const apiRes = await axios.get("http://localhost:8080/userresults", { params: data });
+        const apiRes = await axios.get("https://filmdle-api.filmdle.ca/userresults", { params: data });
         const statsData = apiRes.data;
         setStats((prev) => ({
           ...prev,
