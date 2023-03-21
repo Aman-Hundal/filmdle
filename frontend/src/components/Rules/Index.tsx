@@ -1,10 +1,10 @@
-import { Stack, Divider } from "@mui/material";
+import { Stack, Divider, Typography } from "@mui/material";
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import { grey } from "@mui/material/colors";
 import SegmentIcon from '@mui/icons-material/Segment';
+import RulesContent from "./RulesContent";
 
 const Rules = (props: any) => {
     const { handleClose, open } = props;
@@ -28,10 +28,14 @@ const Rules = (props: any) => {
                     </Stack>
                 </DialogTitle>
                 <DialogContent>
-                    <Divider sx={{ margin: "30px 0 30px 0" }} />
+                    <RulesContent />
+                    <Divider sx={{ margin: "20px 0 20px 0" }} />
+                    <Typography sx={{ textAlign: "center", fontSize: "10px" }}><strong>Created by Aman Hundal. Feel free to reach out here</strong></Typography>
+                    <Typography sx={{ textAlign: "center", fontSize: "10px" }}>
+                        <a style={{ textDecoration: "none" }} target="_blank" href="https://www.linkedin.com/in/aman-hundal-7692398a/"><strong>LinkedIn</strong></a>
+                    </Typography>
                 </DialogContent>
-                <DialogActions>
-                </DialogActions>
+
             </Dialog>
         </>
     );

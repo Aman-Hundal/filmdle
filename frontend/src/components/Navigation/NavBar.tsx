@@ -1,7 +1,6 @@
 import {
     Grid,
     Stack,
-    IconButton
 } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
