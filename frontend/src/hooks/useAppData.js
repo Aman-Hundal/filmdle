@@ -233,7 +233,7 @@ const useAppData = function () {
       currentExpiry: currentExpiry,
     };
     try {
-      const response = await axios.get("http://localhost:8080/userresults", { params: data });
+      const response = await axios.get("https://filmdle-api.filmdle.ca/userresults", { params: data });
       return response.data;
     }
     catch (error) {
