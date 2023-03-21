@@ -29,13 +29,20 @@ const useAppData = function () {
   const [movieState, setMovieState] = useState({});
   const [ip, setIp] = useState("");
   const [loading, setLoading] = useState(true);
-  //Stats Component State Mgmt
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true)
+  //Stats and Rules Component State Mgmt
+  const [openStats, setOpenStats] = useState(false);
+  const [openRules, setOpenRules] = useState(false);
+  const handleOpenStats = () => {
+    setOpenStats(true)
   };
-  const handleClose = () => {
-    setOpen(false)
+  const handleCloseStats = () => {
+    setOpenStats(false)
+  };
+  const handleOpenRules = () => {
+    setOpenRules(true)
+  };
+  const handleCloseRules = () => {
+    setOpenRules(false)
   };
 
   //Clear local storage if date > expiry date
@@ -287,9 +294,12 @@ const useAppData = function () {
     focusField,
     formatAnswerArr,
     saveResult,
-    open,
-    handleClose,
-    handleOpen,
+    openStats,
+    handleCloseStats,
+    handleOpenStats,
+    openRules,
+    handleOpenRules,
+    handleCloseRules,
   };
 };
 

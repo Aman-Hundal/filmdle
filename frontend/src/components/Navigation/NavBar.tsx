@@ -6,11 +6,10 @@ import {
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import { grey } from '@mui/material/colors';
 
 const NavBar = (props: any) => {
-    const { handleOpen } = props;
+    const { handleOpenStats, handleOpenRules } = props;
 
     return (
         <Grid
@@ -48,8 +47,8 @@ const NavBar = (props: any) => {
                     alignItems="center"
                     justifyContent="center"
                 >
-                    <HelpOutlineIcon sx={{ color: "white", fontSize: "35px", paddingRight: "5px" }} />
-                    <LeaderboardIcon sx={{ color: "white", fontSize: "35px", paddingRight: "10px", cursor: "pointer" }} onClick={handleOpen} />
+                    <HelpOutlineIcon sx={{ color: "white", fontSize: "35px", paddingRight: "5px", cursor: "pointer" }} onClick={handleOpenRules} />
+                    <LeaderboardIcon sx={{ color: "white", fontSize: "35px", paddingRight: "10px", cursor: "pointer" }} onClick={handleOpenStats} />
                 </Stack>
             </Grid>
         </Grid>
