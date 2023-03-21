@@ -48,7 +48,7 @@ const useAppData = function () {
     localStorage.clear();
     // window.location.reload();
   }
-  
+
   //Constants
   //tt1877830
   //tt2527338
@@ -59,7 +59,7 @@ const useAppData = function () {
 
   //Functions
   //Submit Answer
-  const submitAnswer = (guessObj, answer, field) => {
+  const submitAnswer = async (guessObj, answer, field) => {
     const guessArray = objToArrConversion(guessObj, answer);
     const formattedArray = formatAnswerArr(answer);
     const answerArray = formattedArray.map((elm, index) => {
@@ -79,7 +79,19 @@ const useAppData = function () {
         guessCount: gameState.guessCount + 1,
         endDate: gameState.timestamp,
       }
-      saveResult(gameData, movieState);
+      await saveResult(gameData, movieState);
+
+      //Retrieve updated user data and update state
+      const newStats = await getUserData(ip, gameState.timestamp);
+      setStats((prev) => ({
+        ...prev,
+        totalUserWins: newStats.totalUserWins,
+        totalUserGames: newStats.totalUserGames,
+        currentStreak: newStats.currentStreak,
+        bestStreak: newStats.bestStreak,
+        totalWeeklyWins: newStats.totalWeeklyWins,
+        winGuess: newStats.winGuess,
+      }))
       // setOpen(true);
     } else if ((gameState.guessCount + 1) === 3) {
       const copyArr = [...gameState.guessesArray];
@@ -92,7 +104,19 @@ const useAppData = function () {
         guessCount: gameState.guessCount + 1,
         endDate: gameState.timestamp,
       }
-      saveResult(gameData, movieState);
+      await saveResult(gameData, movieState);
+
+      //Retrieve updated user data and update state
+      const newStats = await getUserData(ip, gameState.timestamp);
+      setStats((prev) => ({
+        ...prev,
+        totalUserWins: newStats.totalUserWins,
+        totalUserGames: newStats.totalUserGames,
+        currentStreak: newStats.currentStreak,
+        bestStreak: newStats.bestStreak,
+        totalWeeklyWins: newStats.totalWeeklyWins,
+        winGuess: newStats.winGuess,
+      }))
     }
     else {
       const copyArr = [...gameState.guessesArray];
@@ -202,6 +226,20 @@ const useAppData = function () {
       console.error(error);
     }
   }
+  //Function to gather user data from filmdle API
+  const getUserData = async (ip, currentExpiry) => {
+    const data = {
+      user: ip,
+      currentExpiry: currentExpiry,
+    };
+    try {
+      const response = await axios.get("http://localhost:8080/userresults", { params: data });
+      return response.data;
+    }
+    catch (error) {
+      console.error(error);
+    }
+  }
 
   //useEffect to load app data (API calls to IMDB API, IP Address API, back end API etc.)
   useEffect(() => {
@@ -213,12 +251,8 @@ const useAppData = function () {
         const ip = await getIpAddress()
         setIp(ip);
 
-        const data = {
-          user: ip,
-          currentExpiry: gameState.timestamp
-        };
-        const apiRes = await axios.get("https://filmdle-api.filmdle.ca/userresults", { params: data });
-        const statsData = apiRes.data;
+        const apiRes = await getUserData(ip, gameState.timestamp);
+        const statsData = apiRes;
         setStats((prev) => ({
           ...prev,
           totalUserWins: statsData.totalUserWins,
