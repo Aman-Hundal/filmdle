@@ -18,7 +18,7 @@ const StatsLower = (props: any) => {
                         direction="column"
                         alignItems="center"
                     >
-                        <h4 style={{ marginBottom: 0, marginTop: 0 }}>{Math.round(winGuess[0] / weeklyWins * 100)}%</h4>
+                        <h4 style={{ marginBottom: 0, marginTop: 0 }}>{winGuess[0] !== 0 ? Math.round(winGuess[0] / weeklyWins * 100) : 0}%</h4>
                         <Typography sx={{ textAlign: "center" }}>First Guess</Typography>
                     </Stack>
                 </Grid>
@@ -27,7 +27,7 @@ const StatsLower = (props: any) => {
                         direction="column"
                         alignItems="center"
                     >
-                        <h4 style={{ marginBottom: 0, marginTop: 0, }}>{Math.round(winGuess[1] / weeklyWins * 100)}%</h4>
+                        <h4 style={{ marginBottom: 0, marginTop: 0, }}>{winGuess[1] !== 0 ? Math.round(winGuess[1] / weeklyWins * 100) : 0}%</h4>
                         <Typography sx={{ textAlign: "center" }}>Second Guess</Typography>
                     </Stack>
                 </Grid>
@@ -36,7 +36,7 @@ const StatsLower = (props: any) => {
                         direction="column"
                         alignItems="center"
                     >
-                        <h4 style={{ marginBottom: 0, marginTop: 0 }}>{Math.round(winGuess[2] / weeklyWins * 100)}%</h4>
+                        <h4 style={{ marginBottom: 0, marginTop: 0 }}>{winGuess[2] !== 0 ? Math.round(winGuess[2] / weeklyWins * 100) : 0}%</h4>
                         <Typography sx={{ textAlign: "center" }}>Third Guess</Typography>
                     </Stack>
                 </Grid>

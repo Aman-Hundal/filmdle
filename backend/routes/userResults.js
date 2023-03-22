@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
         resData.totalUserWins = userTotalWins;
 
         //Find all user games played sorted from newest to oldest
-        const userTotalGames = await UserResult.find({ user: user }).sort({ gameEndDate: -1 })
+        const userTotalGames = await UserResult.find({ user: user }).sort({ gameEndDate: -1, createdAt: -1 })
         resData.totalUserGames = userTotalGames.length;
 
         //Find first/second/third guess counts for wins for currently weekly game

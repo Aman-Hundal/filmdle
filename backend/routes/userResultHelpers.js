@@ -30,7 +30,7 @@ const userBestWinStreak = (userData) => {
             currentStreak = 0;
         }
     }
-    return bestStreak;
+    return Math.max(bestStreak, currentStreak);
 }
 
 module.exports = {
