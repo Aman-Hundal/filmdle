@@ -10,7 +10,7 @@ Users have three guesses to guess the movie title and are given some background 
 
 App uses various CSS animations, and was developed using a MERN stack + TypeScript. The app also uses a 3rd party IMDB API and was deployed via AWS (Cloud Front + S3 + Route 53 for Frontend/Client and Elastic BeanStalk for Backend/API). 
 
-You can find the app here: filmdle.ca.
+**You can find the app here: filmdle.ca.**
 
 ### Screenshots
 !["Start"](https://github.com/Aman-Hundal/filmdle/blob/main/docs/start.png?raw=true)
