@@ -4,6 +4,7 @@ import useAppData from './hooks/useAppData';
 import NavBar from './components/Navigation/NavBar';
 import Stats from './components/Stats/Index';
 import Rules from './components/Rules/Index';
+import Loading from './components/Loading/Index';
 
 function App() {
   const {
@@ -43,7 +44,7 @@ function App() {
             gameData={gameState} />
           <Stats stats={stats} handleClose={handleCloseStats} open={openStats} />
           <Rules handleClose={handleCloseRules} open={openRules} />
-        </div> : null}
+        </div> : <Loading />}
     </>
   );
 }
